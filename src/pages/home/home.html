@@ -15,7 +15,13 @@
       <ion-col col-12 id=common-space>
         <ion-row>
           <ion-col col-8 id=benchtop>
-            benchtop
+            <ion-row>
+              <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
+                <div class=card-img>
+                  <img src="assets/img/cards/large/card1.png">
+                </div>
+              </ion-col>
+            </ion-row>
           </ion-col>
           <ion-col col-2 id=stockroom>
             stockroom
