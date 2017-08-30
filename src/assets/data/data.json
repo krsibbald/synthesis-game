@@ -1,0 +1,11 @@
+{
+  "cards": [{
+    id: 1,
+    name: 'n-Propyl chloride',
+    points: 1,
+    reagent1: '1o Alkyl halide',
+    reagent2: 'Electrophile',
+    notes: 'Electrophile for SN2 reactions.' 
+
+  }]
+}
