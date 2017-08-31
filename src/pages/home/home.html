@@ -17,7 +17,7 @@
           <ion-col col-8 id=benchtop>
             <ion-row>
               <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
-                <card (click)="presentCardPopover($event)"></card>
+                <!-- <card (click)="presentCardPopover($event)"></card> -->
               </ion-col>
             </ion-row>
           </ion-col>
@@ -36,9 +36,10 @@
           <ion-col col-8 id=lab >
             <ion-row>
               <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
-                <card></card>
-              </ion-col>
-
+                <div class=card-img>
+                  <img src="assets/img/cards/large/placeholder.png">
+                </div>
+              </ion-col> 
             </ion-row>
 
           </ion-col>
@@ -47,6 +48,15 @@
           </ion-col>
           <ion-col col-2>
             recycle
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-8 id=hand>
+            <ion-row>
+              <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
+                <card></card>
+              </ion-col>
+            </ion-row>
           </ion-col>
         </ion-row>
       </ion-col>
