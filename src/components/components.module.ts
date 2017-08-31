@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CardPopoverComponent } from './card-popover/card-popover';
+import { CardComponent } from './card/card';
 @NgModule({
-	declarations: [CardPopoverComponent],
+	declarations: [CardPopoverComponent,
+    CardComponent],
 	imports: [],
-	exports: [CardPopoverComponent]
+	exports: [CardPopoverComponent,
+    CardComponent]
 })
 export class ComponentsModule {}

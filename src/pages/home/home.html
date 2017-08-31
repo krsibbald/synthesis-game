@@ -17,9 +17,7 @@
           <ion-col col-8 id=benchtop>
             <ion-row>
               <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
-                <div class=card-img>
-                  <img src="assets/img/cards/large/card1.png" (click)="presentCardPopover($event)">
-                </div>
+                <card (click)="presentCardPopover($event)"></card>
               </ion-col>
             </ion-row>
           </ion-col>
@@ -38,9 +36,7 @@
           <ion-col col-8 id=lab >
             <ion-row>
               <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
-                <div class=card-img>
-                  <img src="assets/img/cards/large/card1.png">
-                </div>
+                <card></card>
               </ion-col>
 
             </ion-row>

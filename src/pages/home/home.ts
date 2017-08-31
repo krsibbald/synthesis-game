@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Directive } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { CardPopoverComponent } from '../../components/card-popover/card-popover';
+import { CardComponent } from '../../components/card/card'; 
+
 
 @Component({
   selector: 'page-home',
