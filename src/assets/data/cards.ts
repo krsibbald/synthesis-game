@@ -17,4 +17,12 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN1, E1, and E2 reactions.',
     image: 'assets/img/cards/large/card1.png'
+  },{
+    id: 3,
+    name: 'Hydroxide',
+    points: 1,
+    reagent1: 'Strong Base',
+    reagent2: 'Strong Nucleophile',
+    notes: ' Nucleophile/base for SN2 and E2 reactions.',
+    image: 'assets/img/cards/large/card1.png'
   }];
