@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CardModel } from '../../models/card-model';
 
 @Component({
   selector: 'page-list',
@@ -9,7 +10,7 @@ export class ListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-  cards: any;
+  cards: CardModel[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.cards = [{
