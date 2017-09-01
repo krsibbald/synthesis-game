@@ -9,13 +9,16 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let card of cards">
-      <img src={{card.image}} item-left list-card-img>
+    <ion-item *ngFor="let card of cards">
+      <ion-thumbnail item-start>
+        <img src={{card.image}} item-left list-card-img>
+      </ion-thumbnail>
       {{card.name}}
       <div class="item-note" item-right>
         {{card.notes}}
       </div>
-    </button>
+      <button ion-button clear item-end>View</button>
+    </ion-item>
   </ion-list>
   <div *ngIf="selectedItem" padding>
     You navigated here from <b>{{selectedItem.title}}</b>
