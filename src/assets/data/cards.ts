@@ -1,5 +1,7 @@
-{
-  "cards": [{
+import { CardModel } from '../../models/card-model';
+
+export const ALLCARDS: CardModel[] =
+[{
     id: 1,
     name: 'n-Propyl chloride',
     points: 1,
@@ -15,5 +17,4 @@
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN1, E1, and E2 reactions.',
     image: 'assets/img/cards/large/card1.png'
-  }]
-}
+  }];
