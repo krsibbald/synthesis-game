@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { CardModel } from '../../models/card-model';
 
 /*
   Generated class for the CardServiceProvider provider.
@@ -10,9 +9,31 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class CardServiceProvider {
+  cards: CardModel[];
 
-  constructor(public http: Http) {
-    console.log('Hello CardServiceProvider Provider');
+  constructor() {
+    this.cards = [{
+      id: 1,
+      name: 'n-Propyl chloride',
+      points: 1,
+      reagent1: '1o Alkyl halide',
+      reagent2: 'Electrophile',
+      notes: 'Electrophile for SN2 reactions.',
+      image: 'assets/img/cards/large/card1.png'
+    },{
+      id: 2,
+      name: '2-Chloro-2-methylpropane',
+      points: 1,
+      reagent1: '3o Alkyl halide',
+      reagent2: 'Electrophile',
+      notes: 'Electrophile for SN1, E1, and E2 reactions.',
+      image: 'assets/img/cards/large/card1.png'
+    }];
+  }
+
+
+  getCards(){
+    return this.cards;
   }
 
 }
