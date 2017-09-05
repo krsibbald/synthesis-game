@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CardModel } from '../../models/card-model';
+import { CardServiceProvider } from '../../providers/card-service/card-service';
 
 /*
   Generated class for the GameProvider provider.
@@ -22,7 +23,18 @@ export class GameProvider {
   benchtop: CardModel[];
   chemicalWaste: CardModel[];
 
-  constructor() {
+  constructor(public cardServiceProvider: CardServiceProvider) {
+    this.cards = cardServiceProvider.getCards();
+    this.cards.forEach((card: CardModel) => {
+      if(card.startHandNum > 0) {
+        myDeck.push(card);
+        compDeck.push(card);
+      }
+      if(card.stockroomNum > 0) {
+        stockroom.push(card);
+      }
+    }
+    );
     //add cards to my hand
     //add cards to computers hand
     //add cards to stockroom

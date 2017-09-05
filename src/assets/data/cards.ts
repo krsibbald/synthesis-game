@@ -9,7 +9,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN2 reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 3
+    startHandNum: 3,
+    stockroomNum: 0
   },{
     id: 2,
     name: '2-Chloro-2-methylpropane',
@@ -18,7 +19,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN1, E1, and E2 reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 4
+    startHandNum: 4,
+    stockroomNum: 0
   },{
     id: 3,
     name: 'Hydroxide',
@@ -27,7 +29,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Strong Nucleophile',
     notes: 'Nucleophile/base for SN2 and E2 reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 4
+    startHandNum: 4,
+    stockroomNum: 0
   },{
     id: 4,
     name: 'Chlorine',
@@ -36,7 +39,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Strong oxidant capable of reacting with alkenes and under radical conditions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 5,
     name: 'Hydrochloric Acid',
@@ -45,7 +49,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Strong acid useful for protonation of many weakly basic molecules. Chloride ion produced after deprotonation.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 6,
     name: '1-Butene',
@@ -54,7 +59,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Alkene useful for addition reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 7,
     name: 'Light',
@@ -63,7 +69,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Catalyst for initiating photochemical reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 8,
     name: 'Magnesium metal',
@@ -72,7 +79,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Reacts with alkyl halides to form Grignard reagents.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 9,
     name: 'Thionyl chloride',
@@ -81,7 +89,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Converts alcohols into alkyl chlorides.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 10,
     name: 'Sodium Hypochlorite',
@@ -90,7 +99,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Converts alcohols into carbonyls.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 11,
     name: 'Swern Conditions',
@@ -99,7 +109,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Converts alcohols into carbonyls.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 12,
     name: '4-Penten-1-ol',
@@ -108,7 +119,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Alkene',
     notes: 'Contains both a primary alcohol and alkene.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 13,
     name: 'Sodium Hydride',
@@ -117,7 +129,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'A strong base without a significant reverse reaction.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 14,
     name: 'Lithium Aluminum Hydride',
@@ -126,7 +139,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'A strong reducing agent commonly used with carbonyls.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 15,
     name: 'Lithium diisopropyl amine.',
@@ -135,7 +149,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'A strong base useful in E2 and deprotonation reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 16,
     name: 'Sodium cyanide',
@@ -144,7 +159,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Strong Nucleophile',
     notes: 'An unhindered nucleophile especially suited for SN2  reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 17,
     name: 'Hydronium Ion',
@@ -153,7 +169,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'Weak acid useful for protonation of basic molecules.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
    },{
     id: 18,
     name: 'n-Propylamine',
@@ -162,7 +179,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Weak Nucleophile',
     notes: 'Nucleophile/base for SN1 and E1 reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
    },{
     id: 19,
     name: 'Ammonia',
@@ -171,7 +189,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Weak Nucleophile',
     notes: 'Nucleophile/base for SN1 and E1 reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 20,
     name: 'Ozone',
@@ -180,7 +199,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'A powerful oxidant capable of cleaving alkenes and alkynes.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 21,
     name: '1,3-Butadiene',
@@ -189,7 +209,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'A conjugated diene.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 22,
     name: '2-Chloropropane',
@@ -198,7 +219,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN1, SN2, E1, and E2 reactions.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 23,
     name: 'Acrolein',
@@ -207,7 +229,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Alkene',
     notes: 'A good Michael acceptor and Diels-Alder reagent.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 24,
     name: 'Cyclopentadiene',
@@ -216,7 +239,8 @@ export const ALLCARDS: CardModel[] =
     reagent2: '',
     notes: 'A cyclic conjugated diene.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
   },{
     id: 25,
     name: 'Dimethyl maleate',
@@ -225,6 +249,7 @@ export const ALLCARDS: CardModel[] =
     reagent2: 'Carbonyl',
     notes: 'A electron-deficient alkene.',
     image: 'assets/img/cards/large/card1.png',
-    startHandNum: 0
+    startHandNum: 0,
+    stockroomNum: 0
 
   }];
