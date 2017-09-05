@@ -11,6 +11,7 @@ import { CardComponent } from '../components/card/card';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { CardServiceProvider } from '../providers/card-service/card-service';
+import { GameProvider } from '../providers/game/game';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CardServiceProvider } from '../providers/card-service/card-service';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CardServiceProvider
+    CardServiceProvider,
+    GameProvider
   ]
 })
 export class AppModule {}
