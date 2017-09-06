@@ -129,7 +129,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'An unhindered nucleophile especially suited for SN2 reactions.',
     image: 'assets/img/cards/large/card13.png',
     startHandNum: 0,
-    stockroomNum: 3
+    stockroomNum: 2
   },{
     id: 14,
     name: 'n-Propylamine',
@@ -139,7 +139,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'Nucleophile/base for SN1 and E1 reactions.',
     image: 'assets/img/cards/large/card14.png',
     startHandNum: 0,
-    stockroomNum: 3
+    stockroomNum: 0
   },{
     id: 15,
     name: '4-Penten-1-ol',
@@ -149,7 +149,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'Contains both a primary alcohol and alkene.',
     image: 'assets/img/cards/large/card15.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 2
   },{
     id: 16,
     name: 'Lithium Aluminum Hydride',
@@ -159,7 +159,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'A strong reducing agent commonly used with carbonyls.',
     image: 'assets/img/cards/large/card16.png',
     startHandNum: 0,
-    stockroomNum: 2
+    stockroomNum: 3
   },{
     id: 17,
     name: 'Hydronium Ion',
@@ -169,7 +169,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'Weak acid useful for protonation of basic molecules.',
     image: 'assets/img/cards/large/card17.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 3
    },{
     id: 18,
     name: 'Ammonia',
@@ -179,7 +179,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'Nucleophile/base for SN1 and E1 reactions.',
     image: 'assets/img/cards/large/card18.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 3
    },{
     id: 19,
     name: '1,3-Butadiene',
@@ -189,7 +189,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'A conjugated diene.',
     image: 'assets/img/cards/large/card19.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 2
   },{
     id: 20,
     name: 'Acrolein',
@@ -209,7 +209,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'A cyclic conjugated diene.',
     image: 'assets/img/cards/large/card21.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 2
   },{
     id: 22,
     name: 'Dimethyl maleate',
@@ -219,7 +219,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'A electron-deficient alkene.',
     image: 'assets/img/cards/large/card22.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 2
   },{
     id: 23,
     name: '2-Chloropropane',
@@ -229,7 +229,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'Electrophile for SN1, SN2, E1, and E2 reactions.',
     image: 'assets/img/cards/large/card23.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 3
   },{
     id: 24,
     name: 'Ozone',
@@ -239,7 +239,7 @@ export const ALLCARDS: CardModel[] =
     notes: 'A powerful oxidant capable of cleaving alkenes and alkynes.',
     image: 'assets/img/cards/large/card24.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 2
   },{
     id: 25,
     name: 'Lithium diisopropyl amine.',
@@ -249,6 +249,6 @@ export const ALLCARDS: CardModel[] =
     notes: 'A strong base useful in E2 and deprotonation reactions.',
     image: 'assets/img/cards/large/card25.png',
     startHandNum: 0,
-    stockroomNum: 0
+    stockroomNum: 2
 
   }];
