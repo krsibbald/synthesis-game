@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CardModel } from '../../models/card-model';
+import { Card} from '../../models/card';
 import { CardServiceProvider } from '../../providers/card-service/card-service';
 
 /*
@@ -11,21 +11,22 @@ import { CardServiceProvider } from '../../providers/card-service/card-service';
 @Injectable()
 export class GameProvider {
   
-  myDeck: CardModel[];
-  myHand: CardModel[];
-  myRecycle: CardModel[];
+  myDeck: Card[];
+  myHand: Card[];
+  myRecycle: Card[];
 
-  compDeck: CardModel[];
-  compHand: CardModel[];
-  compRecycle: CardModel[];
+  compDeck: Card[];
+  compHand: Card[];
+  compRecycle: Card[];
 
-  stockroom: CardModel[];
-  benchtop: CardModel[];
-  chemicalWaste: CardModel[];
+  stockroom: Card[];
+  benchtop: Card[];
+  chemicalWaste: Card[];
 
+  cards: Card[];
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.cards = cardServiceProvider.getCards();
-    this.cards.forEach((card: CardModel) => {
+    this.cards.forEach((card: Card) => {
       if(card.startHandNum > 0) {
         myDeck.push(card);
         compDeck.push(card);

@@ -2,7 +2,9 @@ import { Component, Directive } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { CardPopoverComponent } from '../../components/card-popover/card-popover';
-import { CardComponent } from '../../components/card/card'; 
+import { CardComponent } from '../../components/card/card';
+import { Card } from '../../models/card';
+import { GameProvider } from '../../providers/game/game'; 
 
 
 @Component({
@@ -10,7 +12,7 @@ import { CardComponent } from '../../components/card/card';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
+  myHand: Card[];
   constructor(public navCtrl: NavController, private popoverCtrl: PopoverController) {}
 
   presentCardPopover(ev) {

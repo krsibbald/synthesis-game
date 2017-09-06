@@ -1,4 +1,4 @@
-export class CardModel {
+export class Card{
   id: number;
   name: string;
   points: number;

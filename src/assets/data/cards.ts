@@ -1,6 +1,6 @@
-import { CardModel } from '../../models/card-model';
+import { Card } from '../../models/card';
 
-export const ALLCARDS: CardModel[] =
+export const ALLCARDS: Card[] =
 [{
     id: 1,
     name: 'n-Propyl chloride',
