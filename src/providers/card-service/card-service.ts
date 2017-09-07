@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ALLCARDS } from '../../assets/data/cards';
-import { CardModel } from '../../models/card-model';
+import { Card } from '../../models/card';
 
 @Injectable()
 export class CardServiceProvider {
-  cards: CardModel[];
+  cards: Card[];
 
   constructor() {
     this.cards = ALLCARDS;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CardModel } from '../../models/card-model';
+import { Card } from '../../models/card';
 import { CardServiceProvider } from '../../providers/card-service/card-service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ListPage {
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
-  cards: CardModel[];
+  cards: Card[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public cardServiceProvider: CardServiceProvider) {
     this.cards = cardServiceProvider.getCards();
