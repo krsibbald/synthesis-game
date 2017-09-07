@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Card } from '../../models/card';
 import { CardServiceProvider } from '../../providers/card-service/card-service';
+import { DetailPage } from '../detail/detail';
 
 @Component({
   selector: 'page-list',
@@ -39,4 +40,14 @@ export class ListPage {
       item: item
     });
   }
+
+  /**
+   * Navigate to the detail page for this item.
+   */
+  openItem(card: Card) {
+    this.navCtrl.push(DetailPage, {
+      card: card
+    });
+  }
+
 }

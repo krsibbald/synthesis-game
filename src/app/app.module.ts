@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { DetailPage } from '../pages/detail/detail';
 import { CardPopoverComponent } from '../components/card-popover/card-popover';
 import { CardComponent } from '../components/card/card';
 
@@ -18,6 +19,7 @@ import { GameProvider } from '../providers/game/game';
     MyApp,
     HomePage,
     ListPage, 
+    DetailPage,
     CardPopoverComponent, 
     CardComponent
   ],
@@ -30,7 +32,8 @@ import { GameProvider } from '../providers/game/game';
     MyApp,
     HomePage,
     ListPage, 
-    CardPopoverComponent
+    CardPopoverComponent,
+    DetailPage
   ],
   providers: [
     StatusBar,
