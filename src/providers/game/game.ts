@@ -28,11 +28,11 @@ export class GameProvider {
     this.cards = cardServiceProvider.getCards();
     this.cards.forEach((card: Card) => {
       if(card.startHandNum > 0) {
-        myDeck.push(card);
-        compDeck.push(card);
+        this.myDeck.push(card);
+        this.compDeck.push(card);
       }
       if(card.stockroomNum > 0) {
-        stockroom.push(card);
+        this.stockroom.push(card);
       }
     }
     );
