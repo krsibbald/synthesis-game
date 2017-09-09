@@ -13,7 +13,10 @@ import { GameProvider } from '../../providers/game/game';
 })
 export class HomePage {
   myHand: Card[];
-  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController) {}
+  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController, gameProvider: GameProvider) {
+    this.myHand = gameProvider.getMyHand();
+  }
+
 
   presentCardPopover(ev) {
     let popover = this.popoverCtrl.create(CardPopoverComponent, {

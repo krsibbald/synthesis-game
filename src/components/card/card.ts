@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Card } from '../../models/card';
 
 /**
  * Generated class for the CardComponent component.
@@ -11,12 +12,8 @@ import { Component } from '@angular/core';
   templateUrl: 'card.html'
 })
 export class CardComponent {
+  
+  card: Card;
 
-  text: string;
-
-  constructor() {
-    console.log('Hello CardComponent Component');
-    this.text = 'Hello World';
-  }
 
 }

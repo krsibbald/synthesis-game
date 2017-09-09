@@ -27,18 +27,24 @@ export class GameProvider {
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.cards = cardServiceProvider.getCards();
     this.cards.forEach((card: Card) => {
-      if(card.startHandNum > 0) {
-        this.myDeck.push(card);
-        this.compDeck.push(card);
-      }
-      if(card.stockroomNum > 0) {
-        this.stockroom.push(card);
-      }
+      //this.myHand.push(card);
+      //if(card.startHandNum > 0) {
+      //  this.myDeck.push(card);
+      //  this.compDeck.push(card);
+
+      //}
+      //if(card.stockroomNum > 0) {
+      //  this.stockroom.push(card);
+      //}
     }
     );
     //add cards to my hand
     //add cards to computers hand
     //add cards to stockroom
+  }
+
+  getMyHand(){
+    return this.cards;
   }
 
 }
