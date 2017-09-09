@@ -53,10 +53,8 @@
         <ion-row>
           <ion-col col-8 id=hand>
             <ion-row>
-              yyy
-              <ion-col col-12 >
-                x
-                <card *ngFor="let c of myHand" [card]="c"></card>
+              <ion-col col-2 *ngFor="let c of myHand">
+                <card  [card]="c"></card>
               </ion-col>
             </ion-row>
           </ion-col>
