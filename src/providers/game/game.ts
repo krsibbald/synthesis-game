@@ -11,31 +11,30 @@ import { CardServiceProvider } from '../../providers/card-service/card-service';
 @Injectable()
 export class GameProvider {
   
-  myDeck: Card[];
-  myHand: Card[];
-  myRecycle: Card[];
+  myDeck: Card[] = [];
+  myHand: Card[] = [];
+  myRecycle: Card[] = [];
 
-  compDeck: Card[];
-  compHand: Card[];
-  compRecycle: Card[];
+  compDeck: Card[] = [];
+  compHand: Card[] = [];
+  compRecycle: Card[] = [];
 
-  stockroom: Card[];
-  benchtop: Card[];
-  chemicalWaste: Card[];
+  stockroom: Card[] = [];
+  benchtop: Card[] = [];
+  chemicalWaste: Card[] = [];
 
   cards: Card[];
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.cards = cardServiceProvider.getCards();
     this.cards.forEach((card: Card) => {
-      //this.myHand.push(card);
-      //if(card.startHandNum > 0) {
-      //  this.myDeck.push(card);
-      //  this.compDeck.push(card);
-
-      //}
-      //if(card.stockroomNum > 0) {
-      //  this.stockroom.push(card);
-      //}
+      if(card.startHandNum > 0) {
+       this.myDeck.push(card);
+       this.compDeck.push(card);
+       this.myHand.push(card);
+      }
+      if(card.stockroomNum > 0) {
+       this.stockroom.push(card);
+      }
     }
     );
     //add cards to my hand
@@ -44,7 +43,7 @@ export class GameProvider {
   }
 
   getMyHand(){
-    return this.cards;
+    return this.myHand;
   }
 
 }
