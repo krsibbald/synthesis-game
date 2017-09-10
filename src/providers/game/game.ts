@@ -24,6 +24,34 @@ export class GameProvider {
   chemicalWaste: Card[] = [];
 
   cards: Card[];
+
+  getRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
+  //https://basarat.gitbooks.io/algorithms/docs/shuffling.html
+  shuffle(array: Card[]): Card[] {
+    // if it's 1 or 0 items, just return
+    if (array.length <= 1) return array;
+
+    // For each index in array
+    for (let i = 0; i < array.length; i++) {
+
+      // choose a random not-yet-placed item to place there
+      // must be an item AFTER the current item, because the stuff
+      // before has all already been placed
+      const randomChoiceIndex = this.getRandom(i, array.length - 1);
+
+      // place our random choice in the spot by swapping
+      [array[i], array[randomChoiceIndex]] = [array[randomChoiceIndex], array[i]];
+    }
+
+    return array;
+  }
+
+
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.cards = cardServiceProvider.getCards();
     this.cards.forEach((card: Card) => {
@@ -44,12 +72,19 @@ export class GameProvider {
           this.stockroom.push(card);
         }
       }
-    }
-    );
+    });
+
+    this.shuffle(this.myHand);
+
   }
 
   getMyHand(){
     return this.myHand;
   }
+
+  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
+
+
 
 }
