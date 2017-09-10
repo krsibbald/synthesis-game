@@ -61,7 +61,6 @@ export class GameProvider {
         for(var i=0; i < times; i++){
           this.myDeck.push(card);
           this.compDeck.push(card);
-          this.myHand.push(card);
         }
 
       }
@@ -74,12 +73,36 @@ export class GameProvider {
       }
     });
 
-    this.shuffle(this.myHand);
+    this.shuffle(this.myDeck);
+    this.shuffle(this.compDeck);
 
+    this.dealMyHand();
+    this.dealCompDeck();
   }
 
   getMyHand(){
     return this.myHand;
+  }
+
+  dealMyHand(){
+    var times = 5;
+    for(var i=0; i < times; i++){
+      this.myHand.push(this.myDeck.pop());
+    }
+  }
+
+  dealCompDeck(){
+    var times = 5;
+    for(var i=0; i < times; i++){
+      this.compHand.push(this.compDeck.pop());
+    }
+  }
+
+  dealBenchtop(){
+    var times = 5;
+    for(var i=0; i < times; i++){
+      this.benchtop.push(this.stockroom.pop());
+    }
   }
 
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
