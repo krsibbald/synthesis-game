@@ -27,13 +27,15 @@ export class GameProvider {
   
 
   getRandom(min, max) {
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
   }
 
-  //https://basarat.gitbooks.io/algorithms/docs/shuffling.html
   shuffle(array: Card[]): Card[] {
+    //https://basarat.gitbooks.io/algorithms/docs/shuffling.html
+  
     // if it's 1 or 0 items, just return
     if (array.length <= 1) return array;
 
@@ -115,11 +117,6 @@ export class GameProvider {
     this.myRecycle.length = 0;
     this.shuffle(this.myDeck);
   }
-
-  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-
-
-
 
 
 }
