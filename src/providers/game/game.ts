@@ -24,6 +24,7 @@ export class GameProvider {
   chemicalWaste: Card[] = [];
 
   cards: Card[];
+  
 
   getRandom(min, max) {
     min = Math.ceil(min);
@@ -85,8 +86,12 @@ export class GameProvider {
   }
 
   dealMyHand(){
+    //number of cards in deck is 5 or more
     var times = 5;
     for(var i=0; i < times; i++){
+      if (this.myDeck.length == 0){
+        this.refillMyDeck();
+      }
       this.myHand.push(this.myDeck.pop());
     }
   }
@@ -105,7 +110,14 @@ export class GameProvider {
     }
   }
 
+  refillMyDeck(){
+    this.myDeck.push.apply(this.myDeck, this.myRecycle);
+    this.myRecycle.length = 0;
+    this.shuffle(this.myDeck);
+  }
+
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+
 
 
 
