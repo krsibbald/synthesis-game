@@ -8,6 +8,7 @@ import { CardServiceProvider } from '../../providers/card-service/card-service';
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular DI.
 */
+
 @Injectable()
 export class GameProvider {
   
@@ -63,7 +64,7 @@ export class GameProvider {
   }
 
   shuffle(array: Card[]): Card[] {
-    https://basarat.gitbooks.io/algorithms/docs/shuffling.html
+    // https://basarat.gitbooks.io/algorithms/docs/shuffling.html
   
     // if it's 1 or 0 items, just return
     if (array.length <= 1) return array;
