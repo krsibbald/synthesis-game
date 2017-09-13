@@ -57,8 +57,8 @@
 
           <ion-col col-8 id=hand>
             <ion-row>
-              <ion-col col-2 *ngFor="let c of myHand">
-                <card  [card]="c" (click)='this.gameProvider.playCard(1)'></card>
+              <ion-col col-2 *ngFor="let c of myHand; let i = index">
+                <card  [card]="c" (click)='this.gameProvider.playCard(i)'></card>
               </ion-col>
             </ion-row>
           </ion-col>

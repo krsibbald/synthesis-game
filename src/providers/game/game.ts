@@ -124,7 +124,7 @@ export class GameProvider {
   }
 
   playCard(i: number){
-    this.myLab.push(this.myHand.splice(1,1)[0] );
+    this.myLab.push(this.myHand.splice(i,1)[0] );
   }
 
 }
