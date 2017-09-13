@@ -35,14 +35,9 @@
         <ion-row>
           <ion-col col-8 id=lab >
             <ion-row>
-              <ion-col col-2 *ngFor="let c of myLab">
-                <card  [card]="c"></card>
+              <ion-col col-2 *ngFor="let c of myLab; let i = index">
+                <card  [card]="c" (click)='this.gameProvider.unplayCard(i)'></card>
               </ion-col>
-              <ion-col col-2>
-                <div class=card-img>
-                  <img src="assets/img/cards/large/placeholder.png">
-                </div>
-              </ion-col> 
             </ion-row>
 
           </ion-col>

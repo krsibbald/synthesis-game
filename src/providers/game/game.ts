@@ -122,7 +122,11 @@ export class GameProvider {
   }
 
   playCard(i: number){
-    this.human.lab.push(this.human.hand.splice(i,1)[0]);
+   this.human.lab.push(this.human.hand.splice(i,1)[0]); 
+  }
+
+  unplayCard(i: number){
+    this.human.hand.push(this.human.lab.splice(i,1)[0]);
   }
 
   endTurn(){
