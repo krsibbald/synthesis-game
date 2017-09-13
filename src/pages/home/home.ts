@@ -29,4 +29,17 @@ export class HomePage {
     });
   }
 
+  endTurn(){
+    var points = 0;
+    var message = "";
+    try{
+      points = this.gameProvider.tryEndTurn();
+      message = "Nice work!";
+    }
+    catch(err){ //this catches too wide of a net. Clean up later
+      message = "Invalid Card Combination"
+    }
+
+  }
+
 }

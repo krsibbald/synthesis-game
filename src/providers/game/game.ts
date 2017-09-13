@@ -10,6 +10,7 @@ import { Player } from '../../models/player';
 */
 
 const CARDCOMBOS= {
+  //true is last item in hand
   1:{3: true}, 
   2:{3: true}, 
   3:{1: true,2: true}
@@ -21,6 +22,7 @@ export class GameProvider {
   computer: Player;
 
   players: Player[] = [];
+  whoseTurn: Player;
 
   stockroom: Card[] = [];
   benchtop: Card[] = [];
@@ -34,6 +36,7 @@ export class GameProvider {
     this.human = new Player();
     this.computer = new Player();
     this.players = [this.human, this.computer];
+    this. whoseTurn = this.human;
 
     this.cards = cardServiceProvider.getCards();
     this.cards.forEach((card: Card) => {
@@ -129,14 +132,50 @@ export class GameProvider {
     this.human.hand.push(this.human.lab.splice(i,1)[0]);
   }
 
-  endTurn(){
-    //is this play valid? 
+  tryEndTurn(){
+    if(this.validPlay(this.human)){
+          //is this play valid? 
     //if yes
       //how many points?
+      var points = 0;
+      this.human.lab.forEach((c:Card)=>{
+        points += c.points;
+      })
       //end turn
-    //if no
+      this.whoseTurn = this.computer;
+
+      return points;
+    }else{
+      //if no
       //error
+      throw 'InvalidCardCombination';
       //don't end turn
+    }
+
+
+  }
+
+  validPlay(player: Player){
+    var answerToCheck = []
+    player.lab.forEach((c: Card)=>{
+      answerToCheck.push(c.id);
+    });
+    var len = answerToCheck.length;
+    answerToCheck.push(true); //marks the last card in hand
+    
+    if(len == 0) {
+     return false;
+    } else if (len == 1) {
+      return true;
+    } else if (len == 2){
+      if(CARDCOMBOS[answerToCheck[0]][answerToCheck[1]]){
+        return true;
+      }else{
+        return false;
+      }
+    } else {
+      return false;
+    }
   }
 
 }

@@ -38,6 +38,9 @@
               <ion-col col-2 *ngFor="let c of myLab; let i = index">
                 <card  [card]="c" (click)='this.gameProvider.unplayCard(i)'></card>
               </ion-col>
+              <ion-col col-2>
+                <button ion-button (click)="endTurn()"> End Turn</button>
+              </ion-col>
             </ion-row>
 
           </ion-col>
