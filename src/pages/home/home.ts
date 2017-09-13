@@ -1,6 +1,6 @@
 import { Component, Directive } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { PopoverController } from 'ionic-angular';
+import { PopoverController, AlertController } from 'ionic-angular';
 import { CardPopoverComponent } from '../../components/card-popover/card-popover';
 import { CardComponent } from '../../components/card/card';
 import { Card } from '../../models/card';
@@ -14,7 +14,10 @@ import { GameProvider } from '../../providers/game/game';
 export class HomePage {
   myHand: Card[];
   myLab: Card[];
-  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController, public gameProvider: GameProvider) {
+  constructor(public navCtrl: NavController, 
+    private popoverCtrl: PopoverController, 
+    public gameProvider: GameProvider,
+    private alertCtrl: AlertController) {
     this.myHand = gameProvider.getMyHand();
     this.myLab = gameProvider.getMyLab();
 
@@ -35,11 +38,36 @@ export class HomePage {
     try{
       points = this.gameProvider.tryEndTurn();
       message = "Nice work!";
+      this.goodEndTurnAlert(points);
     }
     catch(err){ //this catches too wide of a net. Clean up later
-      message = "Invalid Card Combination"
+      message = "Invalid Card Combination";
+      this.badEndTurnAlert();
     }
 
+  }
+
+  goodEndTurnAlert(points: number){
+    var phrase = "";
+    if(points > 1){
+      phrase = "You got " + points + " points";
+    }else{
+      phrase = "You got 1 point.";}
+    let alert = this.alertCtrl.create({
+      title: "Nice work!", 
+      subTitle: phrase,
+      buttons: ['Thanks']
+      });
+      alert.present();
+  }
+
+  badEndTurnAlert(){
+    let alert = this.alertCtrl.create({
+      title: "Invalid Card Combination", 
+      subTitle: "You can not play those cards. Choose a different combination and try again.",
+      buttons: ['OK']
+      });
+      alert.present();
   }
 
 }
