@@ -14,46 +14,18 @@ export class GameProvider {
   myDeck: Card[] = [];
   myHand: Card[] = [];
   myRecycle: Card[] = [];
+  myLab: Card[] = [];
 
   compDeck: Card[] = [];
   compHand: Card[] = [];
   compRecycle: Card[] = [];
+  compLab: Card[] = [];
 
   stockroom: Card[] = [];
   benchtop: Card[] = [];
   chemicalWaste: Card[] = [];
 
   cards: Card[];
-  
-
-  getRandom(min, max) {
-    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
-  }
-
-  shuffle(array: Card[]): Card[] {
-    //https://basarat.gitbooks.io/algorithms/docs/shuffling.html
-  
-    // if it's 1 or 0 items, just return
-    if (array.length <= 1) return array;
-
-    // For each index in array
-    for (let i = 0; i < array.length; i++) {
-
-      // choose a random not-yet-placed item to place there
-      // must be an item AFTER the current item, because the stuff
-      // before has all already been placed
-      const randomChoiceIndex = this.getRandom(i, array.length - 1);
-
-      // place our random choice in the spot by swapping
-      [array[i], array[randomChoiceIndex]] = [array[randomChoiceIndex], array[i]];
-    }
-
-    return array;
-  }
-
 
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.cards = cardServiceProvider.getCards();
@@ -83,9 +55,41 @@ export class GameProvider {
     this.dealCompDeck();
   }
 
+  getRandom(min, max) {
+    //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
+  shuffle(array: Card[]): Card[] {
+    https://basarat.gitbooks.io/algorithms/docs/shuffling.html
+  
+    // if it's 1 or 0 items, just return
+    if (array.length <= 1) return array;
+
+    // For each index in array
+    for (let i = 0; i < array.length; i++) {
+
+      // choose a random not-yet-placed item to place there
+      // must be an item AFTER the current item, because the stuff
+      // before has all already been placed
+      const randomChoiceIndex = this.getRandom(i, array.length - 1);
+
+      // place our random choice in the spot by swapping
+      [array[i], array[randomChoiceIndex]] = [array[randomChoiceIndex], array[i]];
+    }
+
+    return array;
+  }
+
   getMyHand(){
     return this.myHand;
   }
+  getMyLab(){
+    return this.myLab;
+  }
+
 
   dealMyHand(){
     //number of cards in deck is 5 or more
@@ -118,5 +122,8 @@ export class GameProvider {
     this.shuffle(this.myDeck);
   }
 
+  playCard(i: number){
+    this.myLab.push(this.myHand.splice(1,1)[0] );
+  }
 
 }

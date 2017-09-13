@@ -35,7 +35,10 @@
         <ion-row>
           <ion-col col-8 id=lab >
             <ion-row>
-              <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
+              <ion-col col-2 *ngFor="let c of myLab">
+                <card  [card]="c"></card>
+              </ion-col>
+              <ion-col col-2>
                 <div class=card-img>
                   <img src="assets/img/cards/large/placeholder.png">
                 </div>
@@ -51,6 +54,7 @@
           </ion-col>
         </ion-row>
         <ion-row>
+
           <ion-col col-8 id=hand>
             <ion-row>
               <ion-col col-2 *ngFor="let c of myHand">

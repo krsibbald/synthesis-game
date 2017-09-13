@@ -13,8 +13,12 @@ import { GameProvider } from '../../providers/game/game';
 })
 export class HomePage {
   myHand: Card[];
+  myLab: Card[];
   constructor(public navCtrl: NavController, private popoverCtrl: PopoverController, gameProvider: GameProvider) {
+    //gameProvider.playCard(2);
     this.myHand = gameProvider.getMyHand();
+    this.myLab = gameProvider.getMyLab();
+
   }
 
 
@@ -25,6 +29,8 @@ export class HomePage {
       ev: ev
     });
   }
+
+
 
   
 
