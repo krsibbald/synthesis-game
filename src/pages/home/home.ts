@@ -29,12 +29,4 @@ export class HomePage {
     });
   }
 
-  playCardPresenter(){
-    this.gameProvider.playCard(1);
-  }
-
-
-
-  
-
 }
