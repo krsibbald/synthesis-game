@@ -11,14 +11,10 @@ import { Player } from '../../models/player';
 
 @Injectable()
 export class GameProvider {
-  
-  human: Player = new Player;
-  human.id = 1; 
-  human.name = "Human";
+  human: Player;
+  computer: Player;
 
-  computer: Player = new Player;
-  computer.id = 2;
-  computer.name = 'Computer';
+  players: Player[] = [];
 
   stockroom: Card[] = [];
   benchtop: Card[] = [];
@@ -29,6 +25,7 @@ export class GameProvider {
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.human = new Player();
     this.computer = new Player();
+    this.players = [this.human, this.computer];
 
     this.cards = cardServiceProvider.getCards();
     this.cards.forEach((card: Card) => {
@@ -36,8 +33,9 @@ export class GameProvider {
       if(card.startHandNum > 0) {
         var times = card.startHandNum;
         for(var i=0; i < times; i++){
-          this.human.deck.push(card);
-          this.computer.deck.push(card);
+          this.players.forEach((player: Player) => {
+            player.deck.push(card);
+          });
         }
 
       }
@@ -50,11 +48,10 @@ export class GameProvider {
       }
     });
 
-    this.shuffle(this.human.deck);
-    this.shuffle(this.computer.deck);
-
-    this.dealMyHand();
-    this.dealCompDeck();
+   this.players.forEach((player: Player) => {
+      this.shuffle(player.deck);
+      this.dealHand(player);
+    });
   }
 
   getRandom(min, max) {
@@ -92,23 +89,21 @@ export class GameProvider {
     return this.human.lab;
   }
 
-
-  dealMyHand(){
+  dealHand(player: Player){
     //number of cards in deck is 5 or more
     var times = 5;
     for(var i=0; i < times; i++){
-      if (this.human.deck.length == 0){
-        this.refillMyDeck();
+      if (player.deck.length == 0){
+        this.refillDeck(player);
       }
-      this.human.hand.push(this.human.deck.pop());
+      player.hand.push(player.deck.pop());
     }
   }
 
-  dealCompDeck(){
-    var times = 5;
-    for(var i=0; i < times; i++){
-      this.computer.hand.push(this.computer.deck.pop());
-    }
+  refillDeck(player: Player){
+    player.deck.push.apply(player.deck, player.recycle);
+    player.recycle.length = 0;
+    this.shuffle(player.deck);
   }
 
   dealBenchtop(){
@@ -118,14 +113,8 @@ export class GameProvider {
     }
   }
 
-  refillMyDeck(){
-    this.human.deck.push.apply(this.human.deck, this.human.recycle);
-    this.human.recycle.length = 0;
-    this.shuffle(this.human.deck);
-  }
-
   playCard(i: number){
-    this.human.lab.push(this.human.hand.splice(i,1)[0] );
+    this.human.lab.push(this.human.hand.splice(i,1)[0]);
   }
 
 }
