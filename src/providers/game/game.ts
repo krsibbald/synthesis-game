@@ -9,6 +9,12 @@ import { Player } from '../../models/player';
   for more info on providers and Angular DI.
 */
 
+const CARDCOMBOS= {
+  1:{3: true}, 
+  2:{3: true}, 
+  3:{1: true,2: true}
+};
+
 @Injectable()
 export class GameProvider {
   human: Player;
@@ -21,6 +27,8 @@ export class GameProvider {
   chemicalWaste: Card[] = [];
 
   cards: Card[];
+
+
 
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.human = new Player();
@@ -115,6 +123,16 @@ export class GameProvider {
 
   playCard(i: number){
     this.human.lab.push(this.human.hand.splice(i,1)[0]);
+  }
+
+  endTurn(){
+    //is this play valid? 
+    //if yes
+      //how many points?
+      //end turn
+    //if no
+      //error
+      //don't end turn
   }
 
 }
