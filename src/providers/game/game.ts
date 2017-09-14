@@ -193,6 +193,29 @@ export class GameProvider {
 
   }
 
+  canEndTurn(){
+    return (this.state == 'buy');
+  }
+  tryEndTurn(){
+    if(this.canEndTurn()){
+      //set player to next player
+      this.whoseTurn = this.computer;
+      
+      //set state to buy
+      this.state= 'buy';
+      //move any cards currently in players deck to recycle
+      this.human.hand.forEach((c: Card)=>{
+        //TODO may be a better way to move cards in bulk
+        this.human.recycle.push(this.human.hand.pop());
+      });
+      //deal player a new hand
+      this.dealHand(this.human);
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   validPlay(player: Player){
     var answerToCheck = []
     player.lab.forEach((c: Card)=>{

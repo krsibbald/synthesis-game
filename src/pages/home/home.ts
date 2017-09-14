@@ -92,4 +92,29 @@ export class HomePage {
       alert.present();
   }
 
+  endTurn(){
+    if(this.gameProvider.tryEndTurn()){
+      this.goodEndTurnAlert();
+    }else{
+      this.badEndTurnAlert();
+    }
+  }
+
+  goodEndTurnAlert(){
+    let alert = this.alertCtrl.create({
+      title: "Turn ended", 
+      subTitle: "",
+      buttons: ['OK']
+      });
+      alert.present();
+  }
+  badEndTurnAlert(){
+    let alert = this.alertCtrl.create({
+      title: "Unable to end turn", 
+      subTitle: "",
+      buttons: ['OK']
+      });
+      alert.present();
+  }
+
 }
