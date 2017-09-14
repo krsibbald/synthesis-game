@@ -33,9 +33,12 @@
         <ion-row>
           <ion-col col-8 id=benchtop>
             <ion-row>
-              <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]">
-                <!-- <card (click)="presentCardPopover($event)"></card> -->
+              <ion-col col-2 *ngFor="let c of this.gameProvider.benchtop; let i = index">
+                <card  [card]="c" (click)='this.buyCard(i)'></card>
               </ion-col>
+              <!-- <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]"> -->
+                <!-- <card (click)="presentCardPopover($event)"></card> -->
+              <!-- </ion-col> -->
             </ion-row>
           </ion-col>
           <ion-col col-2 id=stockroom>

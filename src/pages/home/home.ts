@@ -67,4 +67,29 @@ export class HomePage {
       alert.present();
   }
 
+  buyCard(i: number){
+    if(this.gameProvider.tryBuyCard(i)){
+      this.goodBuyAlert();
+    }else{
+      this.badBuyAlert();
+    }
+  }
+
+  goodBuyAlert(){
+    let alert = this.alertCtrl.create({
+      title: "Card purchased", 
+      subTitle: "Yay!",
+      buttons: ['OK']
+      });
+      alert.present();
+  }
+  badBuyAlert(){
+    let alert = this.alertCtrl.create({
+      title: "Unable to buy card", 
+      subTitle: "",
+      buttons: ['OK']
+      });
+      alert.present();
+  }
+
 }

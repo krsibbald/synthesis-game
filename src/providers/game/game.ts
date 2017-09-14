@@ -67,6 +67,7 @@ export class GameProvider {
       this.shuffle(player.deck);
       this.dealHand(player);
     });
+   this.dealBenchtop();
   }
 
   getRandom(min, max) {
@@ -159,6 +160,22 @@ export class GameProvider {
       //don't end turn
     }
 
+
+  }
+
+  tryBuyCard(i: number){
+    var cardToBuy;
+    cardToBuy = this.benchtop[i];
+    var points;
+    points = cardToBuy.points;
+    if(points <= this.human.spendingPoints){
+      this.human.spendingPoints -= points;
+      this.whoseTurn = this.computer;
+      this.state = 'reaction';
+      return true; 
+    }else{
+      return false;
+    }
 
   }
 
