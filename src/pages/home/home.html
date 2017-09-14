@@ -70,11 +70,9 @@
               <img src= 'assets/img/cards/large/card_back.png'>
             </div>
           </ion-col>
-          <ion-col col-2>
+          <ion-col col-2 >
             recycle
-            <div class=card-img>
-              <img src= 'assets/img/cards/large/card_back.png'>
-            </div>
+            <card  [card]="this.gameProvider.human.recycle[0]"></card>
           </ion-col>
         </ion-row>
         <ion-row>

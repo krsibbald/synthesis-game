@@ -137,8 +137,11 @@ export class GameProvider {
     this.human.hand.push(this.human.lab.splice(i,1)[0]);
   }
 
+  canSubmitReaction(){
+    return this.state == 'reaction';
+  }
   trySubmitReaction(){
-    if(this.validPlay(this.human)){
+    if(this.canSubmitReaction() && this.validPlay(this.human)){
           //is this play valid? 
     //if yes
       //how many points?
@@ -163,18 +166,29 @@ export class GameProvider {
 
   }
 
+  canBuyCard(){
+    return this.state == 'buy';
+  }
   tryBuyCard(i: number){
-    var cardToBuy;
-    cardToBuy = this.benchtop[i];
-    var points;
-    points = cardToBuy.points;
-    if(points <= this.human.spendingPoints){
-      this.human.spendingPoints -= points;
-      this.whoseTurn = this.computer;
-      this.state = 'reaction';
-      return true; 
+    if(this.canBuyCard()){
+      var cardToBuy;
+      cardToBuy = this.benchtop[i];
+      var points;
+      points = cardToBuy.points;
+      if(points <= this.human.spendingPoints){
+        //spend points
+        this.human.spendingPoints -= points;
+
+        //move card from benchtop to my hand
+        //card to put into benchtop
+        var replacementCard = this.stockroom.pop();
+        this.human.recycle.push(this.benchtop.splice(i,1, replacementCard)[0]);
+        return true; 
+      }else{
+        return false;
+      }
     }else{
-      return false;
+      throw 'WrongState';
     }
 
   }
