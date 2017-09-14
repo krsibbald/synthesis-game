@@ -7,4 +7,6 @@ export class Player{
   hand: Card[] = [];
   recycle: Card[] = [];
   lab: Card[] = [];
+  totalPoints: number = 0;
+  spendingPoints: number = 0;
 };

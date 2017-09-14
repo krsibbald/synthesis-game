@@ -12,6 +12,23 @@
 
   <ion-grid>
     <ion-row>
+      <ion-col col-2>
+        Whose Turn: {{this.gameProvider.whoseTurn.name}}
+      </ion-col>
+      <ion-col col-2>
+        State: {{this.gameProvider.state}}
+      </ion-col>
+      <ion-col col-2>
+        Total Points: {{this.gameProvider.human.totalPoints}}
+      </ion-col>
+      <ion-col col-2>
+        Points to Spend This Round: {{this.gameProvider.human.spendingPoints}}
+      </ion-col>
+      <ion-col col-2>
+        Computer's total points: {{this.gameProvider.computer.totalPoints}} 
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col col-12 id=common-space>
         <ion-row>
           <ion-col col-8 id=benchtop>
@@ -39,16 +56,22 @@
                 <card  [card]="c" (click)='this.gameProvider.unplayCard(i)'></card>
               </ion-col>
               <ion-col col-2>
-                <button ion-button (click)="endTurn()"> End Turn</button>
+                <button ion-button (click)="submitReaction()">Submit Reaction</button>
               </ion-col>
             </ion-row>
 
           </ion-col>
           <ion-col col-2>
             deck
+            <div class=card-img>
+              <img src= 'assets/img/cards/large/card_back.png'>
+            </div>
           </ion-col>
           <ion-col col-2>
             recycle
+            <div class=card-img>
+              <img src= 'assets/img/cards/large/card_back.png'>
+            </div>
           </ion-col>
         </ion-row>
         <ion-row>

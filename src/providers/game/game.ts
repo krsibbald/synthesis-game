@@ -23,6 +23,7 @@ export class GameProvider {
 
   players: Player[] = [];
   whoseTurn: Player;
+  state: string = 'reaction';//'reaction', 'buy'
 
   stockroom: Card[] = [];
   benchtop: Card[] = [];
@@ -30,13 +31,16 @@ export class GameProvider {
 
   cards: Card[];
 
-
-
   constructor(public cardServiceProvider: CardServiceProvider) {
     this.human = new Player();
+    this.human.id = 1;
+    this.human.name = 'human';
+
     this.computer = new Player();
+    this.computer.id = 2;
+    this.computer.name = 'computer';
     this.players = [this.human, this.computer];
-    this. whoseTurn = this.human;
+    this.whoseTurn = this.human;
 
     this.cards = cardServiceProvider.getCards();
     this.cards.forEach((card: Card) => {
@@ -132,7 +136,7 @@ export class GameProvider {
     this.human.hand.push(this.human.lab.splice(i,1)[0]);
   }
 
-  tryEndTurn(){
+  trySubmitReaction(){
     if(this.validPlay(this.human)){
           //is this play valid? 
     //if yes
@@ -143,8 +147,11 @@ export class GameProvider {
       })
       //end turn
       this.whoseTurn = this.computer;
-
+      this.human.totalPoints += points;
+      this.human.spendingPoints = points;
+      this.state = 'buy';
       return points;
+
     }else{
       //if no
       //error

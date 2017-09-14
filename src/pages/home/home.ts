@@ -20,9 +20,7 @@ export class HomePage {
     private alertCtrl: AlertController) {
     this.myHand = gameProvider.getMyHand();
     this.myLab = gameProvider.getMyLab();
-
   }
-
 
   presentCardPopover(ev) {
     let popover = this.popoverCtrl.create(CardPopoverComponent, {
@@ -32,22 +30,21 @@ export class HomePage {
     });
   }
 
-  endTurn(){
+  submitReaction(){
     var points = 0;
     var message = "";
     try{
-      points = this.gameProvider.tryEndTurn();
+      points = this.gameProvider.trySubmitReaction();
       message = "Nice work!";
-      this.goodEndTurnAlert(points);
+      this.goodReactionAlert(points);
     }
     catch(err){ //this catches too wide of a net. Clean up later
-      message = "Invalid Card Combination";
-      this.badEndTurnAlert();
+      this.badReactionAlert();
     }
 
   }
 
-  goodEndTurnAlert(points: number){
+  goodReactionAlert(points: number){
     var phrase = "";
     if(points > 1){
       phrase = "You got " + points + " points";
@@ -61,7 +58,7 @@ export class HomePage {
       alert.present();
   }
 
-  badEndTurnAlert(){
+  badReactionAlert(){
     let alert = this.alertCtrl.create({
       title: "Invalid Card Combination", 
       subTitle: "You can not play those cards. Choose a different combination and try again.",
