@@ -72,7 +72,7 @@ export class HomePage {
   }
 
   buyCard(i: number){
-    if(this.gameProvider.tryBuyCard(i)){
+    if(this.gameProvider.humanTryBuyCard(i)){
       this.goodBuyAlert();
     }else{
       this.badBuyAlert();
@@ -97,7 +97,7 @@ export class HomePage {
   }
 
   endTurn(){
-    if(this.gameProvider.tryEndTurn()){
+    if(this.gameProvider.humanTryEndTurn()){
       this.goodEndTurnAlert();
     }else{
       this.badEndTurnAlert();

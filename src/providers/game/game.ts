@@ -118,9 +118,12 @@ export class GameProvider {
   }
 
   refillDeck(player: Player){
-    player.deck.push.apply(player.deck, player.recycle);
-    player.recycle.length = 0;
+    this.moveAllCardsFromTo(player.recycle, player.deck);
     this.shuffle(player.deck);
+  }
+  moveAllCardsFromTo(fromDeck: Card[], toDeck: Card[]){
+    toDeck.push.apply(toDeck, fromDeck);
+    fromDeck.length = 0;
   }
 
   dealBenchtop(){
@@ -157,12 +160,7 @@ export class GameProvider {
       player.lab.forEach((c:Card)=>{
         points += c.points;
       })
-      //end turn
-      if(player == this.computer){
-        this.whoseTurn = this.human;
-      }else{
-        this.whoseTurn = this.computer;//other player
-      }
+
       player.totalPoints += points;
       player.spendingPoints = points;
       this.state = 'buy';
@@ -172,27 +170,31 @@ export class GameProvider {
       //if no
       //error
       throw 'InvalidCardCombination';
-      //don't end turn
+      //don't change to buy state
     }
   }
 
   canBuyCard(){
+    //doesn't check if they have enough points, just if its in right state
     return this.state == 'buy';
   }
-  tryBuyCard(i: number){
+  humanTryBuyCard(i: number){
+    return this.tryBuyCard(i, this.human );
+  }
+  tryBuyCard(i: number, player: Player){
     if(this.canBuyCard()){
       var cardToBuy;
       cardToBuy = this.benchtop[i];
       var points;
       points = cardToBuy.points;
-      if(points <= this.human.spendingPoints){
+      if(points <= player.spendingPoints){
         //spend points
-        this.human.spendingPoints -= points;
+        player.spendingPoints -= points;
 
         //move card from benchtop to my hand
         //card to put into benchtop
         var replacementCard = this.stockroom.pop();
-        this.human.recycle.push(this.benchtop.splice(i,1, replacementCard)[0]);
+        player.recycle.push(this.benchtop.splice(i,1, replacementCard)[0]);
         return true; 
       }else{
         return false;
@@ -206,20 +208,36 @@ export class GameProvider {
   canEndTurn(){
     return (this.state == 'buy');
   }
-  tryEndTurn(){
+  humanTryEndTurn(){
+    return this.tryEndTurn(this.human);
+  }
+  tryEndTurn(player: Player){
     if(this.canEndTurn()){
+
+      //move any cards currently in players hand to recycle
+      this.moveAllCardsFromTo(player.hand, player.recycle);
+      //move any cards currently in players lab to recycle
+      this.moveAllCardsFromTo(player.lab, player.recycle);
+      // player.hand.forEach((c: Card)=>{
+      //   //TODO may be a better way to move cards in bulk
+      //   player.recycle.push(player.hand.pop());
+      // });
+      // player.lab.forEach((c: Card)=>{
+      //   //TODO may be a better way to move cards in bulk
+      //   player.recycle.push(player.lab.pop());
+      // });
+      //deal player a new hand
+      this.dealHand(player);
+
       //set player to next player
-      this.whoseTurn = this.computer;
+      if(player == this.computer){
+        this.whoseTurn = this.human;
+      }else{
+        this.whoseTurn = this.computer;//other player
+      }
       
       //set state to buy
       this.state= 'buy';
-      //move any cards currently in players deck to recycle
-      this.human.hand.forEach((c: Card)=>{
-        //TODO may be a better way to move cards in bulk
-        this.human.recycle.push(this.human.hand.pop());
-      });
-      //deal player a new hand
-      this.dealHand(this.human);
       return true;
     }else{
       return false;
