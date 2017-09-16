@@ -129,30 +129,41 @@ export class GameProvider {
     }
   }
 
-  playCard(i: number){
-   this.human.lab.push(this.human.hand.splice(i,1)[0]); 
+  humanPlayCard(i: number){
+    this.playCard(i, this.human);
   }
 
-  unplayCard(i: number){
-    this.human.hand.push(this.human.lab.splice(i,1)[0]);
+  playCard(i: number, player: Player){
+   player.lab.push(player.hand.splice(i,1)[0]); 
+  }
+  humanUnplayCard(i: number){
+    this.unplayCard(i, this.human);
+  }
+
+  unplayCard(i: number, player: Player){
+    player.hand.push(player.lab.splice(i,1)[0]);
   }
 
   canSubmitReaction(){
     return this.state == 'reaction';
   }
-  trySubmitReaction(){
-    if(this.canSubmitReaction() && this.validPlay(this.human)){
-          //is this play valid? 
-    //if yes
-      //how many points?
+  trySubmitReaction(player: Player){
+    if(this.canSubmitReaction() && this.validPlay(player)){
+       //is this play valid? 
+      //if yes
+        //how many points?
       var points = 0;
-      this.human.lab.forEach((c:Card)=>{
+      player.lab.forEach((c:Card)=>{
         points += c.points;
       })
       //end turn
-      this.whoseTurn = this.computer;
-      this.human.totalPoints += points;
-      this.human.spendingPoints = points;
+      if(player == this.computer){
+        this.whoseTurn = this.human;
+      }else{
+        this.whoseTurn = this.computer;//other player
+      }
+      player.totalPoints += points;
+      player.spendingPoints = points;
       this.state = 'buy';
       return points;
 
@@ -162,8 +173,6 @@ export class GameProvider {
       throw 'InvalidCardCombination';
       //don't end turn
     }
-
-
   }
 
   canBuyCard(){
@@ -210,6 +219,20 @@ export class GameProvider {
       });
       //deal player a new hand
       this.dealHand(this.human);
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  playComputerTurn(){
+    if(this.whoseTurn == this.computer){
+      //try playing two cards in hand
+        //add two cards to lab
+        //try to submit
+      //if that doesn't work, just play first card in hand
+      //try to buy first card that you have enough points for
+      //end turn
       return true;
     }else{
       return false;

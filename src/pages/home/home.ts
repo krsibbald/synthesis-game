@@ -14,12 +14,16 @@ import { GameProvider } from '../../providers/game/game';
 export class HomePage {
   myHand: Card[];
   myLab: Card[];
+  compHand: Card[];
+  compLab: Card[];
   constructor(public navCtrl: NavController, 
     private popoverCtrl: PopoverController, 
     public gameProvider: GameProvider,
     private alertCtrl: AlertController) {
     this.myHand = gameProvider.getMyHand();
     this.myLab = gameProvider.getMyLab();
+    this.compHand = this.gameProvider.computer.hand;
+    this.compLab = this.gameProvider.computer.lab;
   }
 
   presentCardPopover(ev) {
@@ -34,7 +38,7 @@ export class HomePage {
     var points = 0;
     var message = "";
     try{
-      points = this.gameProvider.trySubmitReaction();
+      points = this.gameProvider.trySubmitReaction(this.gameProvider.human);
       message = "Nice work!";
       this.goodReactionAlert(points);
     }

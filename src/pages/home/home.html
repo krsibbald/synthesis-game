@@ -29,19 +29,53 @@
       </ion-col>
     </ion-row>
     <ion-row>
+      <ion-col col-12 id=comp-space>
+        <ion-row>
+          <ion-col col-8 id=comp-lab >
+            <ion-row>
+              <ion-col col-2 *ngFor="let c of compLab; let i = index">
+                <card  [card]="c"></card>
+              </ion-col>
+              <ion-col col-2>
+                <button ion-button>Submit Reaction</button>
+              </ion-col>
+            </ion-row>
+
+          </ion-col>
+          <ion-col col-2>
+            deck
+            <div class=card-img>
+              <img src= 'assets/img/cards/large/card_back.png'>
+            </div>
+          </ion-col>
+          <ion-col col-2 >
+            recycle
+            <card  [card]="this.gameProvider.computer.recycle[0]"></card>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+
+          <ion-col col-8 id=hand>
+            <ion-row>
+              <ion-col col-2 *ngFor="let c of compHand; let i = index">
+                <card  [card]="c"></card>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
       <ion-col col-12 id=common-space>
         <ion-row>
           <ion-col col-8 id=benchtop>
             <ion-row>
               <ion-col col-2 *ngFor="let c of this.gameProvider.benchtop; let i = index">
-                <card  [card]="c" (click)='this.buyCard(i)'></card>
+                <card  [card]="c"></card>
               </ion-col>
               <ion-col col-2>
-                <button ion-button (click)="endTurn()">End Turn</button>
+                <button ion-button>End Turn</button>
               </ion-col>
-              <!-- <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]"> -->
-                <!-- <card (click)="presentCardPopover($event)"></card> -->
-              <!-- </ion-col> -->
             </ion-row>
           </ion-col>
           <ion-col col-2 id=stockroom>
@@ -59,7 +93,7 @@
           <ion-col col-8 id=lab >
             <ion-row>
               <ion-col col-2 *ngFor="let c of myLab; let i = index">
-                <card  [card]="c" (click)='this.gameProvider.unplayCard(i)'></card>
+                <card  [card]="c" (click)='this.gameProvider.humanUnplayCard(i)'></card>
               </ion-col>
               <ion-col col-2>
                 <button ion-button (click)="submitReaction()">Submit Reaction</button>
@@ -83,7 +117,7 @@
           <ion-col col-8 id=hand>
             <ion-row>
               <ion-col col-2 *ngFor="let c of myHand; let i = index">
-                <card  [card]="c" (click)='this.gameProvider.playCard(i)'></card>
+                <card  [card]="c" (click)='this.gameProvider.humanPlayCard(i)'></card>
               </ion-col>
             </ion-row>
           </ion-col>
