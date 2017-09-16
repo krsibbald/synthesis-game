@@ -99,6 +99,8 @@ export class HomePage {
   endTurn(){
     if(this.gameProvider.humanTryEndTurn()){
       this.goodEndTurnAlert();
+      var speed = 100;
+      this.gameProvider.playComputerTurn(speed);
     }else{
       this.badEndTurnAlert();
     }

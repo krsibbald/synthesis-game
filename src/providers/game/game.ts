@@ -99,6 +99,11 @@ export class GameProvider {
     return array;
   }
 
+  moveAllCardsFromTo(fromDeck: Card[], toDeck: Card[]){
+    toDeck.push.apply(toDeck, fromDeck);
+    fromDeck.length = 0;
+  }
+
   getMyHand(){
     return this.human.hand;
   }
@@ -120,10 +125,6 @@ export class GameProvider {
   refillDeck(player: Player){
     this.moveAllCardsFromTo(player.recycle, player.deck);
     this.shuffle(player.deck);
-  }
-  moveAllCardsFromTo(fromDeck: Card[], toDeck: Card[]){
-    toDeck.push.apply(toDeck, fromDeck);
-    fromDeck.length = 0;
   }
 
   dealBenchtop(){
@@ -236,20 +237,35 @@ export class GameProvider {
         this.whoseTurn = this.computer;//other player
       }
       
-      //set state to buy
-      this.state= 'buy';
+      //set state to reaction
+      this.state= 'reaction';
       return true;
     }else{
       return false;
     }
   }
 
-  playComputerTurn(){
+  playComputerTurn(speed: number){
     if(this.whoseTurn == this.computer){
       //try playing two cards in hand
         //add two cards to lab
+        this.playCard(0, this.computer);
+        this.playCard(0, this.computer);
+
         //try to submit
-      //if that doesn't work, just play first card in hand
+        try{this.trySubmitReaction(this.computer);
+        }catch(e){
+          //if that doesn't work, just play first card in hand
+          this.unplayCard(0, this.computer);
+          this.trySubmitReaction(this.computer); //should work every time
+        }
+        
+        //now in buy phase
+        //try to buy every card
+      [0,1,2,3,4].forEach((i: number) => {
+         this.tryBuyCard(i, this.computer);
+       });
+      
       //try to buy first card that you have enough points for
       //end turn
       return true;
