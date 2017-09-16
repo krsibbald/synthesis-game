@@ -268,6 +268,7 @@ export class GameProvider {
       
       //try to buy first card that you have enough points for
       //end turn
+      this.tryEndTurn(this.computer);
       return true;
     }else{
       return false;
