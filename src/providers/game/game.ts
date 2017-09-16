@@ -67,6 +67,7 @@ export class GameProvider {
       this.shuffle(player.deck);
       this.dealHand(player);
     });
+   this.shuffle(this.stockroom);
    this.dealBenchtop();
   }
 
