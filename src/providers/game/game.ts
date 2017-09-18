@@ -249,26 +249,41 @@ export class GameProvider {
     if(this.whoseTurn == this.computer){
       //try playing two cards in hand
         //add two cards to lab
-        this.playCard(0, this.computer);
-        this.playCard(0, this.computer);
-
+        var temp = this; 
+        setTimeout(function(){
+          temp.playCard(0, temp.computer);
+        }, speed);
+        setTimeout(function(){
+          temp.playCard(0, temp.computer);
+        }, speed*2);
+        // this.playCard(0, this.computer);
+        // this.playCard(0, this.computer);
+        setTimeout(function(){
+          if (!temp.validPlay(temp.computer)){
+          
+            temp.unplayCard(0, temp.computer);
+          }
+        }, speed*3);
+        // 
         //try to submit
-        try{this.trySubmitReaction(this.computer);
-        }catch(e){
-          //if that doesn't work, just play first card in hand
-          this.unplayCard(0, this.computer);
-          this.trySubmitReaction(this.computer); //should work every time
-        }
+        setTimeout(function(){
+          temp.trySubmitReaction(temp.computer);
+        }, speed*4);
         
         //now in buy phase
         //try to buy every card
       [0,1,2,3,4].forEach((i: number) => {
-         this.tryBuyCard(i, this.computer);
+         setTimeout(function(){
+           temp.tryBuyCard(i, temp.computer);
+         }, speed*5);
        });
       
       //try to buy first card that you have enough points for
       //end turn
-      this.tryEndTurn(this.computer);
+      setTimeout(function(){
+        temp.tryEndTurn(temp.computer);
+      }, speed*6);
+      
       return true;
     }else{
       return false;
