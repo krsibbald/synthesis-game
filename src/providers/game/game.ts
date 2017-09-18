@@ -149,11 +149,11 @@ export class GameProvider {
     player.hand.push(player.lab.splice(i,1)[0]);
   }
 
-  canSubmitReaction(){
-    return this.state == 'reaction';
+  canSubmitReaction(player: Player){
+    return this.state == 'reaction' && this.whoseTurn == player;
   }
   trySubmitReaction(player: Player){
-    if(this.canSubmitReaction() && this.validPlay(player)){
+    if(this.canSubmitReaction(player) && this.validPlay(player)){
        //is this play valid? 
       //if yes
         //how many points?

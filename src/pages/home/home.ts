@@ -34,6 +34,10 @@ export class HomePage {
     });
   }
 
+  humanCanSubmitReaction(){
+    return this.gameProvider.canSubmitReaction(this.gameProvider.human);
+  }
+
   submitReaction(){
     var points = 0;
     var message = "";

@@ -36,9 +36,6 @@
               <ion-col col-2 *ngFor="let c of compLab; let i = index">
                 <card  [card]="c"></card>
               </ion-col>
-              <ion-col col-2>
-                <button ion-button>Submit Reaction</button>
-              </ion-col>
             </ion-row>
 
           </ion-col>
@@ -99,7 +96,7 @@
                 <card  [card]="c" (click)='this.gameProvider.humanUnplayCard(i)'></card>
               </ion-col>
               <ion-col col-2>
-                <button ion-button (click)="submitReaction()">Submit Reaction</button>
+                <button ion-button (click)="submitReaction()" [disabled]="!humanCanSubmitReaction()">Submit Reaction</button>
               </ion-col>
             </ion-row>
 
