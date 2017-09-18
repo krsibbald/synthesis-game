@@ -24,4 +24,8 @@ export class CardPopoverComponent {
     this.i = navParams.get('i');
   }
 
+  humanCanPlayCard(){
+    return this.gameProvider.whoseTurn == this.gameProvider.human && this.gameProvider.state == 'reaction';
+  }
+
 }

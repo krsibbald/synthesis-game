@@ -5,4 +5,4 @@
 <div class=card-img *ngIf="card">
   <img src= {{card.image}}>
 </div>
-<button ion-button (click)='this.gameProvider.humanPlayCard(i)'> Play card</button>
+<button ion-button [hidden]='!humanCanPlayCard()' (click)='this.gameProvider.humanPlayCard(i)'> Play card</button>
