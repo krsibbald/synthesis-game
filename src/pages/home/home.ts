@@ -100,6 +100,10 @@ export class HomePage {
       alert.present();
   }
 
+  humanCanEndTurn(){
+    return this.gameProvider.canEndTurn(this.gameProvider.human);
+  }
+
   endTurn(){
     if(this.gameProvider.humanTryEndTurn()){
       this.goodEndTurnAlert();

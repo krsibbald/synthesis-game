@@ -206,14 +206,14 @@ export class GameProvider {
 
   }
 
-  canEndTurn(){
-    return (this.state == 'buy');
+  canEndTurn(player: Player){
+    return this.state == 'buy' && this.whoseTurn == player;
   }
   humanTryEndTurn(){
     return this.tryEndTurn(this.human);
   }
   tryEndTurn(player: Player){
-    if(this.canEndTurn()){
+    if(this.canEndTurn(player)){
 
       //move any cards currently in players hand to recycle
       this.moveAllCardsFromTo(player.hand, player.recycle);

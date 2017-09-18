@@ -71,7 +71,7 @@
                 <card  [card]="c" (click)='this.buyCard(i)'></card>
               </ion-col>
               <ion-col col-2>
-                <button ion-button (click)="endTurn()">End Turn</button>
+                <button ion-button (click)="endTurn()" [disabled]="!this.humanCanEndTurn()">End Turn</button>
               </ion-col>
               <!-- <ion-col col-2 *ngFor="let num of [1, 2, 3, 4, 5]"> -->
                 <!-- <card (click)="presentCardPopover($event)"></card> -->
