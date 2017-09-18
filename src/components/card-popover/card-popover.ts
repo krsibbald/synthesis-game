@@ -16,10 +16,12 @@ import { GameProvider } from '../../providers/game/game';
 export class CardPopoverComponent {
   card: Card;
   params: any;
+  i: number;
 
-  constructor(private navParams: NavParams) {
+  constructor(private navParams: NavParams, public gameProvider: GameProvider) {
     this.params = navParams;
     this.card = navParams.get('card');
+    this.i = navParams.get('i');
   }
 
 }
