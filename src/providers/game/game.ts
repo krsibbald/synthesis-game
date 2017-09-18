@@ -255,34 +255,30 @@ export class GameProvider {
         }, speed);
         setTimeout(function(){
           temp.playCard(0, temp.computer);
-        }, speed*2);
-        // this.playCard(0, this.computer);
-        // this.playCard(0, this.computer);
-        setTimeout(function(){
+
           if (!temp.validPlay(temp.computer)){
-          
             temp.unplayCard(0, temp.computer);
           }
-        }, speed*3);
-        // 
+        }, speed*2);
+
         //try to submit
         setTimeout(function(){
           temp.trySubmitReaction(temp.computer);
-        }, speed*4);
+        }, speed*3);
         
         //now in buy phase
         //try to buy every card
       [0,1,2,3,4].forEach((i: number) => {
          setTimeout(function(){
            temp.tryBuyCard(i, temp.computer);
-         }, speed*5);
+         }, speed*4);
        });
       
       //try to buy first card that you have enough points for
       //end turn
       setTimeout(function(){
         temp.tryEndTurn(temp.computer);
-      }, speed*6);
+      }, speed*5);
       
       return true;
     }else{
