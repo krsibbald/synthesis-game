@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { PopoverController } from 'ionic-angular';
+import { PopoverController, NavParams } from 'ionic-angular';
+import { Card } from '../../models/card';
+import { GameProvider } from '../../providers/game/game';
 
 /**
  * Generated class for the CardPopoverComponent component.
@@ -12,12 +14,12 @@ import { PopoverController } from 'ionic-angular';
   templateUrl: 'card-popover.html'
 })
 export class CardPopoverComponent {
+  card: Card;
+  params: any;
 
-  text: string;
-
-  constructor() {
-    console.log('Hello CardPopoverComponent Component');
-    this.text = 'Hello World';
+  constructor(private navParams: NavParams) {
+    this.params = navParams;
+    this.card = navParams.get('card');
   }
 
 }

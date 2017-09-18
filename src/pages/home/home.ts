@@ -26,8 +26,8 @@ export class HomePage {
     this.compLab = this.gameProvider.computer.lab;
   }
 
-  presentCardPopover(ev) {
-    let popover = this.popoverCtrl.create(CardPopoverComponent, {
+  presentCardPopover(ev, card) {
+    let popover = this.popoverCtrl.create(CardPopoverComponent, {"card": card
     });
     popover.present({
       ev: ev
