@@ -76,17 +76,18 @@ export class HomePage {
   }
 
   buyCard(i: number){
-    if(this.gameProvider.humanTryBuyCard(i)){
-      this.goodBuyAlert();
+    var result = this.gameProvider.humanTryBuyCard(i);
+    if(result){
+      this.goodBuyAlert(result);
     }else{
       this.badBuyAlert();
     }
   }
 
-  goodBuyAlert(){
+  goodBuyAlert(card: Card){
     let alert = this.alertCtrl.create({
       title: "Card purchased", 
-      subTitle: "Yay!",
+      subTitle: card.name,
       buttons: ['OK']
       });
       alert.present();

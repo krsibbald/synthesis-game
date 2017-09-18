@@ -175,15 +175,15 @@ export class GameProvider {
     }
   }
 
-  canBuyCard(){
+  canBuyCard(player: Player){
     //doesn't check if they have enough points, just if its in right state
-    return this.state == 'buy';
+    return this.state == 'buy' && this.whoseTurn == player;
   }
   humanTryBuyCard(i: number){
-    return this.tryBuyCard(i, this.human );
+    return this.tryBuyCard(i, this.human);
   }
   tryBuyCard(i: number, player: Player){
-    if(this.canBuyCard()){
+    if(this.canBuyCard(player)){
       var cardToBuy;
       cardToBuy = this.benchtop[i];
       var points;
@@ -196,7 +196,7 @@ export class GameProvider {
         //card to put into benchtop
         var replacementCard = this.stockroom.pop();
         player.recycle.push(this.benchtop.splice(i,1, replacementCard)[0]);
-        return true; 
+        return cardToBuy; 
       }else{
         return false;
       }
