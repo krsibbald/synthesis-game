@@ -87,7 +87,7 @@ export class HomePage {
   goodBuyAlert(card: Card){
     let alert = this.alertCtrl.create({
       title: "Card purchased", 
-      subTitle: card.name,
+      subTitle: card.name + "<img src="+card.icon+">" ,
       buttons: ['OK']
       });
       alert.present();
