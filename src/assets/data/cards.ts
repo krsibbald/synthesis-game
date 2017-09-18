@@ -9,6 +9,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN2 reactions.',
     image: 'assets/img/cards/large/card01.png',
+    icon: 'assets/img/cards/icons/chemical01.png',
     startHandNum: 3,
     stockroomNum: 0
   },{
@@ -19,6 +20,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN1, E1, and E2 reactions.',
     image: 'assets/img/cards/large/card02.png',
+    icon: 'assets/img/cards/icons/chemical02.png',
     startHandNum: 3,
     stockroomNum: 0
   },{
@@ -29,6 +31,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Strong Nucleophile',
     notes: 'Nucleophile/base for SN2 and E2 reactions.',
     image: 'assets/img/cards/large/card03.png',
+    icon: 'assets/img/cards/icons/chemical03.png',
     startHandNum: 4,
     stockroomNum: 0
   },{
@@ -39,6 +42,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Strong oxidant capable of reacting with alkenes and under radical conditions.',
     image: 'assets/img/cards/large/card04.png',
+    icon: 'assets/img/cards/icons/chemical04.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -49,6 +53,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Strong acid useful for protonation of many weakly basic molecules. Chloride ion produced after deprotonation.',
     image: 'assets/img/cards/large/card05.png',
+    icon: 'assets/img/cards/icons/chemical05.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -59,6 +64,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Alkene useful for addition reactions.',
     image: 'assets/img/cards/large/card06.png',
+    icon: 'assets/img/cards/icons/chemical06.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -69,6 +75,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Catalyst for initiating photochemical reactions.',
     image: 'assets/img/cards/large/card07.png',
+    icon: 'assets/img/cards/icons/chemical07.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -79,6 +86,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Reacts with alkyl halides to form Grignard reagents.',
     image: 'assets/img/cards/large/card08.png',
+    icon: 'assets/img/cards/icons/chemical08.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -89,6 +97,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Converts alcohols into alkyl chlorides.',
     image: 'assets/img/cards/large/card09.png',
+    icon: 'assets/img/cards/icons/chemical09.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -99,6 +108,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Converts alcohols into carbonyls.',
     image: 'assets/img/cards/large/card10.png',
+    icon: 'assets/img/cards/icons/chemical10.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -109,6 +119,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Converts alcohols into carbonyls.',
     image: 'assets/img/cards/large/card11.png',
+    icon: 'assets/img/cards/icons/chemical11.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -118,6 +129,7 @@ export const ALLCARDS: Card[] =
     reagent1: 'Strong Base',
     reagent2: '',
     notes: 'A strong base without a significant reverse reaction.',image: 'assets/img/cards/large/card12.png',
+    icon: 'assets/img/cards/icons/chemical12.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -128,6 +140,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Strong Nucleophile',
     notes: 'An unhindered nucleophile especially suited for SN2 reactions.',
     image: 'assets/img/cards/large/card13.png',
+    icon: 'assets/img/cards/icons/chemical13.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -138,6 +151,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Weak Nucleophile',
     notes: 'Nucleophile/base for SN1 and E1 reactions.',
     image: 'assets/img/cards/large/card14.png',
+    icon: 'assets/img/cards/icons/chemical14.png',
     startHandNum: 0,
     stockroomNum: 0
   },{
@@ -148,6 +162,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Alkene',
     notes: 'Contains both a primary alcohol and alkene.',
     image: 'assets/img/cards/large/card15.png',
+    icon: 'assets/img/cards/icons/chemical15.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -158,6 +173,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'A strong reducing agent commonly used with carbonyls.',
     image: 'assets/img/cards/large/card16.png',
+    icon: 'assets/img/cards/icons/chemical16.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -168,6 +184,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'Weak acid useful for protonation of basic molecules.',
     image: 'assets/img/cards/large/card17.png',
+    icon: 'assets/img/cards/icons/chemical17.png',
     startHandNum: 0,
     stockroomNum: 3
    },{
@@ -178,6 +195,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Weak Nucleophile',
     notes: 'Nucleophile/base for SN1 and E1 reactions.',
     image: 'assets/img/cards/large/card18.png',
+    icon: 'assets/img/cards/icons/chemical18.png',
     startHandNum: 0,
     stockroomNum: 3
    },{
@@ -188,6 +206,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'A conjugated diene.',
     image: 'assets/img/cards/large/card19.png',
+    icon: 'assets/img/cards/icons/chemical19.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -198,6 +217,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Alkene',
     notes: 'A good Michael acceptor and Diels-Alder reagent.',
     image: 'assets/img/cards/large/card20.png',
+    icon: 'assets/img/cards/icons/chemical20.png',
     startHandNum: 0,
     stockroomNum: 0
   },{
@@ -208,6 +228,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'A cyclic conjugated diene.',
     image: 'assets/img/cards/large/card21.png',
+    icon: 'assets/img/cards/icons/chemical21.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -218,6 +239,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Carbonyl',
     notes: 'A electron-deficient alkene.',
     image: 'assets/img/cards/large/card22.png',
+    icon: 'assets/img/cards/icons/chemical22.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -228,6 +250,7 @@ export const ALLCARDS: Card[] =
     reagent2: 'Electrophile',
     notes: 'Electrophile for SN1, SN2, E1, and E2 reactions.',
     image: 'assets/img/cards/large/card23.png',
+    icon: 'assets/img/cards/icons/chemical23.png',
     startHandNum: 0,
     stockroomNum: 3
   },{
@@ -238,6 +261,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'A powerful oxidant capable of cleaving alkenes and alkynes.',
     image: 'assets/img/cards/large/card24.png',
+    icon: 'assets/img/cards/icons/chemical24.png',
     startHandNum: 0,
     stockroomNum: 2
   },{
@@ -248,6 +272,7 @@ export const ALLCARDS: Card[] =
     reagent2: '',
     notes: 'A strong base useful in E2 and deprotonation reactions.',
     image: 'assets/img/cards/large/card25.png',
+    icon: 'assets/img/cards/icons/chemical25.png',
     startHandNum: 0,
     stockroomNum: 2
 

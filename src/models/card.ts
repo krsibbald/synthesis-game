@@ -6,6 +6,7 @@ export class Card{
   reagent2: string;
   notes: string;
   image: string;
+  icon: string;
   startHandNum: number;
   stockroomNum: number;
 };
