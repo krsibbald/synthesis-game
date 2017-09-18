@@ -29,7 +29,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col col-12 id=comp-space>
+      <ion-col col-12 id=comp-space [hidden]="!isComputersTurn()">
         <ion-row>
           <ion-col col-8 id=comp-lab >
             <ion-row>

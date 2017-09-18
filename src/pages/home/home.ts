@@ -131,4 +131,8 @@ export class HomePage {
       alert.present();
   }
 
+  isComputersTurn(){
+    return this.gameProvider.whoseTurn == this.gameProvider.computer;
+  }
+
 }
