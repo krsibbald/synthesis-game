@@ -26,12 +26,13 @@ export class HomePage {
     this.compLab = this.gameProvider.computer.lab;
   }
 
-  presentCardPopover(ev, card: Card, i: number) {
+  presentCardPopover(ev, card: Card, i: number, origin: string) {
     let popover = this.popoverCtrl.create(CardPopoverComponent, 
-      {"card": card, "i": i
+      {"card": card, "i": i, 'origin': origin
     });
     popover.present({
-      ev: ev
+      // ev: ev
+      //display in center of screen
     });
   }
 

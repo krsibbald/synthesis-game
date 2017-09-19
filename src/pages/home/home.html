@@ -68,7 +68,8 @@
           <ion-col col-8 id=benchtop>
             <ion-row>
               <ion-col col-2 *ngFor="let c of this.gameProvider.benchtop; let i = index">
-                <card  [card]="c" (click)='this.buyCard(i)'></card>
+                <!-- <card  [card]="c" (click)='this.buyCard(i)'></card> -->
+                <card [card] = "c" (click)="presentCardPopover($event, c, i, 'benchtop')"></card>
               </ion-col>
               <ion-col col-2>
                 <button ion-button (click)="endTurn()" [disabled]="!this.humanCanEndTurn()">End Turn</button>
@@ -115,7 +116,7 @@
             <ion-row>
               <ion-col col-2 *ngFor="let c of myHand; let i = index">
                 <!--                 <card  [card]="c" (click)='this.gameProvider.humanPlayCard(i)'></card> -->
-                <card [card] = "c" (click)="presentCardPopover($event, c, i)"></card>
+                <card [card] = "c" (click)="presentCardPopover($event, c, i, 'hand')"></card>
               </ion-col>
             </ion-row>
           </ion-col>

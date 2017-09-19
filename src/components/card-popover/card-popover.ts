@@ -17,6 +17,7 @@ export class CardPopoverComponent {
   card: Card;
   params: any;
   i: number;
+  origin: string; //hand or benchtop
 
   constructor(private navParams: NavParams, 
     public gameProvider: GameProvider, 
@@ -24,17 +25,26 @@ export class CardPopoverComponent {
     this.params = navParams;
     this.card = navParams.get('card');
     this.i = navParams.get('i');
+    this.origin = navParams.get('origin')
   }
 
   humanCanPlayCard(){
-    return this.gameProvider.whoseTurn == this.gameProvider.human && this.gameProvider.state == 'reaction';
-  }
-  humanCanBuyCard(){
-    return this.gameProvider.canBuyCard(this.gameProvider.human);
+    return this.gameProvider.whoseTurn == this.gameProvider.human 
+    && this.gameProvider.state == 'reaction'
+    && this.origin == 'hand';
   }
 
   humanPlayCard(i: number){
     this.gameProvider.humanPlayCard(i);
+    this.viewController.dismiss();
+  }
+
+  humanCanBuyCard(){
+    return this.gameProvider.canBuyCard(this.gameProvider.human)
+    && this.origin == 'benchtop';
+  }
+  humanBuyCard(i: number){
+    this.gameProvider.humanTryBuyCard(i);
     this.viewController.dismiss();
   }
 }
