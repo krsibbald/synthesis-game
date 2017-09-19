@@ -24,6 +24,7 @@ export class GameProvider {
   players: Player[] = [];
   whoseTurn: Player;
   state: string = 'reaction';//'reaction', 'buy'
+  anySentToWaste: boolean = false;
 
   stockroom: Card[] = [];
   benchtop: Card[] = [];
@@ -207,7 +208,9 @@ export class GameProvider {
   }
 
   canSendToWaste(player: Player){
-    return this.state == 'buy' && this.whoseTurn == player; 
+    return this.state == 'buy' 
+    && this.whoseTurn == player 
+    && this.anySentToWaste == false; 
     //TODO need a check to see if any others have been sent this turn
   }
 
@@ -218,6 +221,7 @@ export class GameProvider {
     //card to put into benchtop
     var replacementCard = this.stockroom.pop();
     this.chemicalWaste.push(this.benchtop.splice(i,1, replacementCard)[0]);
+    this.anySentToWaste = true;
   }
 
   canEndTurn(player: Player){
@@ -251,6 +255,7 @@ export class GameProvider {
         this.whoseTurn = this.computer;//other player
       }
       
+      this.anySentToWaste = false;
       //set state to reaction
       this.state= 'reaction';
       return true;
