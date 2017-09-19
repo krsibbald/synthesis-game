@@ -65,7 +65,7 @@
     <ion-row>
       <ion-col col-12 id=common-space>
         <ion-row>
-          <ion-col col-8 id=benchtop>
+          <ion-col col-9 id=benchtop>
             <ion-row>
               <ion-col col-2 *ngFor="let c of this.gameProvider.benchtop; let i = index">
                 <!-- <card  [card]="c" (click)='this.buyCard(i)'></card> -->
@@ -76,15 +76,19 @@
               </ion-col>
             </ion-row>
           </ion-col>
-          <ion-col col-2 id=stockroom>
-            stockroom
-            <div class=card-img>
-              <img src= 'assets/img/cards/large/card_back.png'>
-            </div>
-          </ion-col>
-          <ion-col col-2 id=chemical-waste>
-            chemical waste
-            <card  [card]="this.gameProvider.chemicalWaste.slice(-1)[0]"></card>
+          <ion-col col-3>
+            <ion-row>
+              <ion-col col-6 id=stockroom>
+                stockroom
+                <div class=card-img>
+                  <img src= 'assets/img/cards/large/card_back.png'>
+                </div>
+              </ion-col>
+              <ion-col col-6 id=chemical-waste>
+                chemical waste
+                <card  [card]="this.gameProvider.chemicalWaste.slice(-1)[0]"></card>
+              </ion-col>
+            </ion-row>
           </ion-col>
         </ion-row>
       </ion-col>
@@ -92,7 +96,7 @@
     <ion-row>
       <ion-col col-12 id=my-space>
         <ion-row>
-          <ion-col col-8 id=lab >
+          <ion-col col-9 id=lab >
             <ion-row>
               <ion-col col-2 *ngFor="let c of myLab; let i = index">
                 <card  [card]="c" (click)='this.gameProvider.humanUnplayCard(i)'></card>
@@ -103,20 +107,24 @@
             </ion-row>
 
           </ion-col>
-          <ion-col col-2>
-            deck
-            <div class=card-img>
-              <img src= 'assets/img/cards/large/card_back.png'>
-            </div>
-          </ion-col>
-          <ion-col col-2 >
-            recycle
-            <card  [card]="this.gameProvider.human.recycle.slice(-1)[0]"></card>
+          <ion-col col-3>
+            <ion-row>
+              <ion-col col-6>
+                deck
+                <div class=card-img>
+                  <img src= 'assets/img/cards/large/card_back.png'>
+                </div>
+              </ion-col>
+              <ion-col col-6 >
+                recycle
+                <card  [card]="this.gameProvider.human.recycle.slice(-1)[0]"></card>
+              </ion-col>
+            </ion-row>
           </ion-col>
         </ion-row>
         <ion-row>
 
-          <ion-col col-8 id=hand>
+          <ion-col col-9 id=hand>
             <ion-row>
               <ion-col col-2 *ngFor="let c of myHand; let i = index">
                 <!--                 <card  [card]="c" (click)='this.gameProvider.humanPlayCard(i)'></card> -->
