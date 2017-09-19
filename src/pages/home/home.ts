@@ -2,6 +2,8 @@ import { Component, Directive } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PopoverController, AlertController } from 'ionic-angular';
 import { CardPopoverComponent } from '../../components/card-popover/card-popover';
+import { DiscardPopoverComponent } from '../../components/discard-popover/discard-popover';
+
 import { CardComponent } from '../../components/card/card';
 import { Card } from '../../models/card';
 import { GameProvider } from '../../providers/game/game'; 
@@ -32,6 +34,16 @@ export class HomePage {
     });
     popover.present({
       // ev: ev
+      //display in center of screen
+    });
+  }
+
+  presentDiscardPopover(ev) {
+    let popover = this.popoverCtrl.create(DiscardPopoverComponent, 
+      {
+    });
+    popover.present({
+      ev: ev
       //display in center of screen
     });
   }

@@ -1,4 +1,7 @@
-<!-- Generated template for the DiscardPopoverComponent component -->
-<div>
-  {{text}}
-</div>
+<ion-slides pager>
+  <ion-slide *ngFor="let card of cards; let i = index">
+    <div class=card-img>
+      <img src= {{card.image}}>
+    </div>
+  </ion-slide>
+</ion-slides>

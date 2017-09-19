@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { PopoverController, NavParams, ViewController } from 'ionic-angular';
+import { Card } from '../../models/card';
+import { GameProvider } from '../../providers/game/game';
 
 /**
  * Generated class for the DiscardPopoverComponent component.
@@ -11,12 +14,10 @@ import { Component } from '@angular/core';
   templateUrl: 'discard-popover.html'
 })
 export class DiscardPopoverComponent {
-
-  text: string;
-
-  constructor() {
-    console.log('Hello DiscardPopoverComponent Component');
-    this.text = 'Hello World';
+  cards: Card[];
+  constructor(private navParams: NavParams, 
+    public gameProvider: GameProvider) {
+    this.cards = this.gameProvider.chemicalWaste;
   }
 
 }

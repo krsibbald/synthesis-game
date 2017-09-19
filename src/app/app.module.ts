@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { DetailPage } from '../pages/detail/detail';
 import { CardPopoverComponent } from '../components/card-popover/card-popover';
+import { DiscardPopoverComponent } from '../components/discard-popover/discard-popover';
+
 import { CardComponent } from '../components/card/card';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -21,6 +23,7 @@ import { GameProvider } from '../providers/game/game';
     ListPage, 
     DetailPage,
     CardPopoverComponent, 
+    DiscardPopoverComponent,
     CardComponent
   ],
   imports: [
@@ -33,6 +36,7 @@ import { GameProvider } from '../providers/game/game';
     HomePage,
     ListPage, 
     CardPopoverComponent,
+    DiscardPopoverComponent,
     DetailPage
   ],
   providers: [
