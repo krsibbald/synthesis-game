@@ -78,9 +78,13 @@
           </ion-col>
           <ion-col col-2 id=stockroom>
             stockroom
+            <div class=card-img>
+              <img src= 'assets/img/cards/large/card_back.png'>
+            </div>
           </ion-col>
           <ion-col col-2 id=chemical-waste>
             chemical waste
+            <card  [card]="this.gameProvider.chemicalWaste.slice(-1)[0]"></card>
           </ion-col>
         </ion-row>
       </ion-col>
