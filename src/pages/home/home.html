@@ -47,7 +47,7 @@
           </ion-col>
           <ion-col col-2 >
             recycle
-            <card  [card]="this.gameProvider.computer.recycle[0]"></card>
+            <card  [card]="this.gameProvider.computer.recycle.slice(-1)[0]"></card>
           </ion-col>
         </ion-row>
         <ion-row>
@@ -107,7 +107,7 @@
           </ion-col>
           <ion-col col-2 >
             recycle
-            <card  [card]="this.gameProvider.human.recycle[0]"></card>
+            <card  [card]="this.gameProvider.human.recycle.slice(-1)[0]"></card>
           </ion-col>
         </ion-row>
         <ion-row>
