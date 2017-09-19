@@ -206,6 +206,20 @@ export class GameProvider {
 
   }
 
+  canSendToWaste(player: Player){
+    return this.state == 'buy' && this.whoseTurn == player; 
+    //TODO need a check to see if any others have been sent this turn
+  }
+
+  humanSendToWaste(i: number){
+    var cardToWaste;
+    cardToWaste = this.benchtop[i];
+    //move card from benchtop to chemical waste
+    //card to put into benchtop
+    var replacementCard = this.stockroom.pop();
+    this.chemicalWaste.push(this.benchtop.splice(i,1, replacementCard)[0]);
+  }
+
   canEndTurn(player: Player){
     return this.state == 'buy' && this.whoseTurn == player;
   }

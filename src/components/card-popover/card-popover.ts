@@ -47,4 +47,13 @@ export class CardPopoverComponent {
     this.gameProvider.humanTryBuyCard(i);
     this.viewController.dismiss();
   }
+
+  humanCanSendToWaste(){
+    return this.gameProvider.canSendToWaste(this.gameProvider.human)
+    && this.origin == 'benchtop';
+  }
+  humanSendToWaste(i: number){
+    this.gameProvider.humanSendToWaste(i);
+    this.viewController.dismiss();
+  }
 }
