@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopoverController, NavParams } from 'ionic-angular';
+import { PopoverController, NavParams, ViewController } from 'ionic-angular';
 import { Card } from '../../models/card';
 import { GameProvider } from '../../providers/game/game';
 
@@ -18,7 +18,9 @@ export class CardPopoverComponent {
   params: any;
   i: number;
 
-  constructor(private navParams: NavParams, public gameProvider: GameProvider) {
+  constructor(private navParams: NavParams, 
+    public gameProvider: GameProvider, 
+    public viewController: ViewController) {
     this.params = navParams;
     this.card = navParams.get('card');
     this.i = navParams.get('i');
@@ -27,5 +29,12 @@ export class CardPopoverComponent {
   humanCanPlayCard(){
     return this.gameProvider.whoseTurn == this.gameProvider.human && this.gameProvider.state == 'reaction';
   }
+  humanCanBuyCard(){
+    return this.gameProvider.canBuyCard(this.gameProvider.human);
+  }
 
+  humanPlayCard(i: number){
+    this.gameProvider.humanPlayCard(i);
+    this.viewController.dismiss();
+  }
 }
