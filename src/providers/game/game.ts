@@ -5,9 +5,9 @@ import { Player } from '../../models/player';
 
 const CARDCOMBOS= {
   //0 is last item in hand
-  1:{3: {0: true, 1: {3: {0: true}}}}, 
+  1:{3: {0: true, 3: {1: {0: true}}}}, 
   2:{3: {0: true}}, 
-  3:{1: {0: true, 1: {3: {0: true}}},
+  3:{1: {0: true, 3: {1: {0: true}}},
      2: {0: true}}
 };
 
