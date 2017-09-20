@@ -38,9 +38,9 @@ export class HomePage {
     });
   }
 
-  presentDiscardPopover(ev) {
+  presentDiscardPopover(ev, fromPile: string) {
     let popover = this.popoverCtrl.create(DiscardPopoverComponent, 
-      {
+      {fromPile: fromPile
     });
     popover.present({
       ev: ev

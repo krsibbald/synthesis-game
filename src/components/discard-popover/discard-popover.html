@@ -1,4 +1,7 @@
-<ion-slides pager>
+<h2> 
+  {{title}}
+</h2>
+<ion-slides pager effect='coverflow'>
   <ion-slide *ngFor="let card of cards; let i = index">
     <div class=card-img>
       <img src= {{card.image}}>
