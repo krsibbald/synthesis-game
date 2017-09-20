@@ -2,18 +2,13 @@ import { Injectable } from '@angular/core';
 import { Card} from '../../models/card';
 import { CardServiceProvider } from '../../providers/card-service/card-service';
 import { Player } from '../../models/player';
-/*
-  Generated class for the GameProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 
 const CARDCOMBOS= {
-  //true is last item in hand
-  1:{3: true}, 
-  2:{3: true}, 
-  3:{1: true,2: true}
+  //0 is last item in hand
+  1:{3: {0: true, 1: {3: {0: true}}}}, 
+  2:{3: {0: true}}, 
+  3:{1: {0: true, 1: {3: {0: true}}},
+     2: {0: true}}
 };
 
 @Injectable()
@@ -237,14 +232,7 @@ export class GameProvider {
       this.moveAllCardsFromTo(player.hand, player.recycle);
       //move any cards currently in players lab to recycle
       this.moveAllCardsFromTo(player.lab, player.recycle);
-      // player.hand.forEach((c: Card)=>{
-      //   //TODO may be a better way to move cards in bulk
-      //   player.recycle.push(player.hand.pop());
-      // });
-      // player.lab.forEach((c: Card)=>{
-      //   //TODO may be a better way to move cards in bulk
-      //   player.recycle.push(player.lab.pop());
-      // });
+
       //deal player a new hand
       this.dealHand(player);
 
@@ -311,20 +299,21 @@ export class GameProvider {
       answerToCheck.push(c.id);
     });
     var len = answerToCheck.length;
-    answerToCheck.push(true); //marks the last card in hand
-    
+    answerToCheck.push(0); //marks the last card in hand
+    console.log(answerToCheck);
     if(len == 0) {
      return false;
     } else if (len == 1) {
       return true;
-    } else if (len == 2){
-      if(CARDCOMBOS[answerToCheck[0]][answerToCheck[1]]){
-        return true;
-      }else{
-        return false;
-      }
     } else {
-      return false;
+      var partialAnswerHash= CARDCOMBOS; 
+      answerToCheck.forEach((i: number) => {
+        partialAnswerHash= partialAnswerHash[i];
+        if (partialAnswerHash == undefined){
+          return false;
+        }
+      });
+      return partialAnswerHash.valueOf() == true;
     }
   }
 
