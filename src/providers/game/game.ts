@@ -3,6 +3,8 @@ import { Card} from '../../models/card';
 import { CardServiceProvider } from '../../providers/card-service/card-service';
 import { Player } from '../../models/player';
 
+const WINNINGPOINTS = 3;
+
 const CARDCOMBOS= {
   //0 is last item in hand
   1:{3: {0: true, 3: {1: {0: true}}}}, 
@@ -18,7 +20,8 @@ export class GameProvider {
 
   players: Player[] = [];
   whoseTurn: Player;
-  state: string = 'reaction';//'reaction', 'buy'
+  state: string = 'reaction';//'reaction', 'buy', 'over'
+  winner: Player;
   anySentToWaste: boolean = false;
 
   stockroom: Card[] = [];
@@ -301,20 +304,47 @@ export class GameProvider {
     var len = answerToCheck.length;
     answerToCheck.push(0); //marks the last card in hand
     console.log(answerToCheck);
+    try{
     if(len == 0) {
-     return false;
-    } else if (len == 1) {
-      return true;
-    } else {
-      var partialAnswerHash= CARDCOMBOS; 
-      answerToCheck.forEach((i: number) => {
-        partialAnswerHash= partialAnswerHash[i];
-        if (partialAnswerHash == undefined){
-          return false;
-        }
-      });
-      return partialAnswerHash.valueOf() == true;
+       return false;
+      } else if (len == 1) {
+        return true;
+      } else if (len ==2){
+        return CARDCOMBOS[answerToCheck[0]][answerToCheck[1]][answerToCheck[2]];
+      } else if (len ==3){
+        return CARDCOMBOS[answerToCheck[0]][answerToCheck[1]][answerToCheck[2]][answerToCheck[3]];
+      } else if (len ==4){
+        return CARDCOMBOS[answerToCheck[0]][answerToCheck[1]][answerToCheck[2]][answerToCheck[3]][answerToCheck[4]];
+      } else if (len ==5){
+        return CARDCOMBOS[answerToCheck[0]][answerToCheck[1]][answerToCheck[2]][answerToCheck[3]][answerToCheck[4]][answerToCheck[5]];
+      } else{
+        return false;
+      } 
+    }catch(e){
+      return false;
     }
+      // var partialAnswerHash = CARDCOMBOS; 
+      // answerToCheck.forEach((i: number) => {
+      //   partialAnswerHash = partialAnswerHash[i];
+      //   if (partialAnswerHash == undefined){
+      //     return false;
+      //   }
+      // });
+      // return partialAnswerHash.valueOf() == true;
+    // }
+  }
+
+  didGameEnd(){
+    return this.players.some(function(player){return(player.totalPoints >= WINNINGPOINTS);});
+  }
+
+  endGame(){
+    this.state = 'over';
+    this.players.forEach((player: Player)=>{
+      if (player.totalPoints >= WINNINGPOINTS){
+        this.winner = player;
+      }
+    });
   }
 
 }

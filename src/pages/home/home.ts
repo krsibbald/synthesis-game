@@ -121,9 +121,14 @@ export class HomePage {
 
   endTurn(){
     if(this.gameProvider.humanTryEndTurn()){
-      this.goodEndTurnAlert();
-      var speed = 2000;
-      this.gameProvider.playComputerTurn(speed);
+      if (!this.checkForGameEnd()){
+      
+        // this.goodEndTurnAlert();
+        var speed = 2000;
+        if(this.gameProvider.playComputerTurn(speed)){
+          this.goodEndTurnAlert();
+        }
+      }
     }else{
       this.badEndTurnAlert();
     }
@@ -141,6 +146,39 @@ export class HomePage {
     let alert = this.alertCtrl.create({
       title: "Unable to end turn", 
       subTitle: "",
+      buttons: ['OK']
+      });
+      alert.present();
+  }
+
+  checkForGameEnd(){
+    if(this.gameProvider.didGameEnd()){
+       this.winGameAlert();
+      // this.gameProvider.endGame();
+      // if (this.gameProvider.winner == this.gameProvider.human){
+      //   this.winGameAlert();
+      // } else {
+      //   this.loseGameAlert();
+      // }
+      return true;
+    }else{
+      return false;
+    }
+
+  }
+
+  winGameAlert(){
+    let alert = this.alertCtrl.create({
+      title: "You won!", 
+      subTitle: "",
+      buttons: ['Hurray!']
+      });
+      alert.present();
+  }
+  loseGameAlert(){
+    let alert = this.alertCtrl.create({
+      title: "You lost.", 
+      subTitle: "Better luck next time.",
       buttons: ['OK']
       });
       alert.present();
