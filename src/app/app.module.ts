@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { DetailPage } from '../pages/detail/detail';
+import { SettingsPage } from '../pages/settings/settings';
 import { CardPopoverComponent } from '../components/card-popover/card-popover';
 import { DiscardPopoverComponent } from '../components/discard-popover/discard-popover';
 
@@ -22,6 +23,7 @@ import { GameProvider } from '../providers/game/game';
     HomePage,
     ListPage, 
     DetailPage,
+    SettingsPage,
     CardPopoverComponent, 
     DiscardPopoverComponent,
     CardComponent
@@ -37,7 +39,8 @@ import { GameProvider } from '../providers/game/game';
     ListPage, 
     CardPopoverComponent,
     DiscardPopoverComponent,
-    DetailPage
+    DetailPage,
+    SettingsPage
   ],
   providers: [
     StatusBar,
